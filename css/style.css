@@ -154,3 +154,34 @@ body {
 	cursor: pointer;
 
   }
+
+  .color-change {
+	z-index: 20;
+	height: 100vh;
+	width: 20vw;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: rgba(202, 202, 202, 0.447);
+	background: linear-gradient(90deg, rgba(180,180,180,1) 0%, rgba(255,255,255,0.34226190476190477) 100%, rgba(255,255,255,1) 100%);	
+	border-left: solid 3px #ffffff59;
+
+
+	backdrop-filter: blur(2px);
+
+	display: none;
+	flex-direction: column;
+
+	padding: 50px 10px;
+
+
+  }
+
+  .color {
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	box-shadow: 2px 2px 5px black;
+
+	margin: 10px;
+  }
