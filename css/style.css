@@ -3,6 +3,18 @@
     src: url("../fonts/Rodin.otf") format("opentype");
 }
 
+#background-video {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -10;
+
+	
+  }
+  
+
 body {
 	width: 100%;
 	margin:0;

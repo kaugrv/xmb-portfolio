@@ -30,7 +30,7 @@ gsap.defaults({
   duration: 1,
 });
 
-initProjects();
+initProjects(allDataFR);
 
 let currentCat = 0; // Catégorie actuelle
 let currentProj = [0, 0, 0, 0, 0, 0, 0]; // Projet actuel pour chacune des catégories
@@ -65,6 +65,24 @@ function focusProj() {
 
   // Nb projets total de la catégorie actuelle (exemple : 5 projets dans cat0 : [5, ..., ..., ..., ..., ...])
   let nbProjI = nbProj[currentCat];
+
+  if (BackgroundImg[currentCat][currentProj[currentCat]]) {
+    
+    gsap.to("html", {
+      duration: 0.3,
+      ease: "power3.out",
+      backgroundImage:'url('+BackgroundImg[currentCat][currentProj[currentCat]]+')',
+    });
+
+    gsap.to("#background-video", {
+      duration: 1,
+      opacity:0
+      });
+    
+  }
+
+  console.log(BackgroundImg[currentCat][currentProj[currentCat]]);
+  
 
   // On parcourt tous les projets de la catégorie actuelle...
   for (let i = 0; i < nbProjI; i++) {
@@ -130,7 +148,6 @@ function focusProj() {
 // Navigation clavier
 
 document.body.addEventListener("keydown", (e) => {
-
   // Bas (projet)
   if (e.key === "ArrowDown") {
     currentProj[currentCat]++;
@@ -148,7 +165,7 @@ document.body.addEventListener("keydown", (e) => {
 
     forth.play();
 
-  // Haut (projet)
+    // Haut (projet)
   } else if (e.key === "ArrowUp") {
     currentProj[currentCat]--;
 
@@ -165,8 +182,7 @@ document.body.addEventListener("keydown", (e) => {
 
     forth.play();
 
-
-   // Droite (catégorie)
+    // Droite (catégorie)
   } else if (e.key === "ArrowRight") {
     currentCat++;
     if (currentCat >= nbCat) {
@@ -180,7 +196,7 @@ document.body.addEventListener("keydown", (e) => {
 
     forth.play();
 
-  // Gauche (catégorie)
+    // Gauche (catégorie)
   } else if (e.key === "ArrowLeft") {
     currentCat--;
     if (currentCat <= 0) {
@@ -203,7 +219,6 @@ document.body.addEventListener("keydown", (e) => {
 // Scroll vertical (projet) et scroll horizontal (catégories)
 
 document.body.addEventListener("wheel", function (event) {
-
   // Scroll vers le bas
   if (event.deltaY > 0) {
     currentProj[currentCat]++;
@@ -219,7 +234,7 @@ document.body.addEventListener("wheel", function (event) {
       ease: "power3.out",
     });
 
-  // Scroll vers le haut
+    // Scroll vers le haut
   } else if (event.deltaY < 0) {
     currentProj[currentCat]--;
 
@@ -240,7 +255,6 @@ document.body.addEventListener("wheel", function (event) {
   focusProj();
 });
 
-
 // Clic sur une catégorie pour y aller directement
 function jumpTo(n) {
   currentCat = n;
@@ -260,60 +274,111 @@ function jumpTo(n) {
   focusProj();
 
   forth.play();
-
 }
-
-
 
 function jumpToProj(n) {
-  currentProj[currentCat] = n;
-
-  
-      if (currentProj[currentCat] >= nbProj[currentCat]) {
-        currentProj[currentCat] = nbProj[currentCat] - 1;
-      }
-  
-      let catProj = document.querySelector(".cat" + currentCat + " .projects");
-      gsap.to(catProj, {
-        y: -20 * currentProj[currentCat] + "vh",
-        duration: 0.3,
-        ease: "power3.out",
-      });
-  
-  
-      if (currentProj[currentCat] <= 0) {
-        currentProj[currentCat] = 0;
-      }
-  
-      gsap.to(catProj, {
-        y: -20 * currentProj[currentCat] + "vh",
-        duration: 0.3,
-        ease: "power3.out",
-      });
-  
-      forth.play();
-  
-      focusCat();
-      focusProj();
-
-}
-
-
-function addJumpToEvents() {
-  for (let i=0; i<nbCat; i++) {
-    document.querySelector(`.cat${i} .title`).addEventListener("click", function () {
-      jumpTo(i);
-    });
-
-    for (let j=0; j<nbProj[i]; j++) {
-      document.querySelector(`.cat${i} .proj${j} .project-icon`).addEventListener("click", function () {
-        jumpToProj(j);
-      });
-      
-    }
+  if (n >= currentProj[currentCat]) {
+    currentProj[currentCat]++;
+  } else {
+    currentProj[currentCat]--;
   }
 
+  if (currentProj[currentCat] >= nbProj[currentCat]) {
+    currentProj[currentCat] = nbProj[currentCat] - 1;
+  }
+
+  let catProj = document.querySelector(".cat" + currentCat + " .projects");
+  gsap.to(catProj, {
+    y: -20 * currentProj[currentCat] + "vh",
+    duration: 0.3,
+    ease: "power3.out",
+  });
+
+  if (currentProj[currentCat] <= 0) {
+    currentProj[currentCat] = 0;
+  }
+
+  gsap.to(catProj, {
+    y: -20 * currentProj[currentCat] + "vh",
+    duration: 0.3,
+    ease: "power3.out",
+  });
+
+  forth.play();
+
+  focusCat();
+  focusProj();
 }
 
+function addJumpToEvents() {
+  for (let i = 0; i < nbCat; i++) {
+    document
+      .querySelector(`.cat${i} .title`)
+      .addEventListener("click", function () {
+        jumpTo(i);
+      });
+
+    for (let j = 0; j < nbProj[i]; j++) {
+      document
+        .querySelector(`.cat${i} .proj${j} .project-icon`)
+        .addEventListener("click", function () {
+          jumpToProj(j);
+        });
+    }
+  }
+}
 
 addJumpToEvents();
+
+document.body.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && currentCat === 6) {
+    if (friendLinks[currentProj[currentCat]])
+      window.open(friendLinks[currentProj[currentCat]], "_blank");
+  }
+
+  if (e.key === "Enter" && currentCat === 0) {
+    if (Links[currentProj[currentCat]]) {
+      window.open(Links[currentProj[currentCat]], "_blank");
+    }
+  }
+});
+
+// let currentLan = "FR";
+
+// let languageButton =  document.querySelector("#language-selector");
+// let commands = document.querySelector('#commands');
+
+// function switchLanguage() {
+//   if (currentLan=="FR") {
+//     currentLan="EN";
+//     languageButton.innerHTML="FR";
+//     commands.innerHTML="Use whether the arrows or your cursor and wheel to browse."
+//     initProjects(allDataEN);
+//   }
+//   else {
+//     currentLan="FR";
+//     languageButton.innerHTML="EN";
+//     commands.innerHTML="Pour naviguer, utilisez les flèches ou bien le curseur et la molette."
+//     initProjects(allDataFR);
+//   }
+
+// }
+
+// languageButton.addEventListener("click", function(){switchLanguage();});
+
+let HR = Math.floor(Math.random() * 360);
+gsap.to("#background-video", {
+  duration: 5,
+  filter: "hue-rotate(" + HR + "deg)",
+});
+
+document.body.addEventListener("keydown", (e) => {
+  if (e.key === "c" || e.key === "C") {
+    HR += 1;
+    gsap.to("#background-video", {
+      duration: 1,
+      filter: "hue-rotate(" + HR + "deg)",
+    });
+    console.log(HR);
+  }
+});

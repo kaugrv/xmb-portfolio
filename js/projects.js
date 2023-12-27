@@ -12,12 +12,21 @@ let cat0Data = [
 
     {Title:'Linktree',
         Description:'Découvrez mon CV, mon LinkedIn et mes autres liens.',
+        Link:'https://linktr.ee/commandant.grant',
         Icon: "images/icons/links.png"},
 
     {Title:'À propos',
         Description:'',
         Icon: "images/icons/links.png"},
     ]
+
+
+    let Links=[];
+    for (let i in cat0Data){
+        Links.push(cat0Data[i].Link);
+    }
+
+    
 
 // Interactivité   
 let cat1Data = [
@@ -56,6 +65,8 @@ let cat1Data = [
 
 ]
 
+// 2D
+
 let cat2Data = [
     {Title:'Montréal Tattoo Festival',
     Description:'Design d\'affiche',
@@ -78,6 +89,8 @@ let cat2Data = [
     Year: 2021,
     Icon: "images/icons/2d.png"}
 ]
+
+// 3D
 
 let cat3Data = [
     {Title:'The Racer',
@@ -107,6 +120,8 @@ let cat3Data = [
 
 ]
 
+// Audiovisuel
+
 let cat4Data = [
 
     {Title:'Migratory Birds And Why They Don\'t Fly Alone',
@@ -117,7 +132,9 @@ let cat4Data = [
     {Title:'Méduse',
     Description:'Court-métrage',
     Year: 2022,
-    Icon: "images/icons/video.png"}, 
+    Icon: "images/icons/video.png",
+    
+    Background: "images/projects/meduse.jpg"},
 
     {Title:'Œ',
     Description:'Court-métrage',
@@ -125,6 +142,8 @@ let cat4Data = [
     Icon: "images/icons/video.png"}, 
 
 ]
+
+// Musique
 
 let cat5Data = [
 
@@ -135,6 +154,9 @@ let cat5Data = [
 
 ]
 
+
+//Friends
+
 let cat6Data = [
 
     {Title:'Tristan Debeaune',
@@ -144,19 +166,23 @@ let cat6Data = [
 
     {Title:'Emily-Rose Strich',
     Description:'',
+    Link:"https://emilyrose.fr/",
     Icon: "images/icons/2d.png"}, 
 
     {Title:'Romain Serres',
     Description:'',
+    Link:"https://bouillon2poulet.artstation.com/",
     Icon: "images/icons/3d.png"}, 
 
     
     {Title:'Mattéo Leclercq',
     Description:'',
+    Link:'https://matteo-leclercq.fr/',
     Icon: "images/icons/links.png"}, 
 
     {Title:'Axel Dona',
     Description:'',
+    Link:'https://www.axeldona.com/',
     Icon: "images/icons/video.png"}, 
 
     {Title:'girlfriendcore',
@@ -166,13 +192,33 @@ let cat6Data = [
 
     {Title:'Sarah KG Photographie',
     Description:'',
+    Link:'https://www.instagram.com/sarahkg_photographie/',
     Icon: "images/icons/2d.png"}, 
-
-
 
 ]
 
-let allData = [cat0Data, cat1Data, cat2Data, cat3Data, cat4Data, cat5Data, cat6Data]
+let friendLinks = [];
+for (let i in cat6Data){
+    friendLinks.push(cat6Data[i].Link);
+}
+
+
+
+let allDataFR = [cat0Data, cat1Data, cat2Data, cat3Data, cat4Data, cat5Data, cat6Data]
+
+let BackgroundImg = [] ;
+
+for (let i in allDataFR){
+    let catBGImg = [];
+    for (let j in allDataFR[i]) {
+        catBGImg.push(allDataFR[i][j].Background);
+    }
+    BackgroundImg.push(catBGImg);
+};
+
+
+console.log(BackgroundImg);
+
 
 function convertDataToHTML(catData, i) {
 
@@ -196,17 +242,153 @@ function convertDataToHTML(catData, i) {
 
 
 
-function initProjects() {
+function initProjects(allData) {
+    nbProj = [0, 0, 0, 0, 0, 0, 0];
 
-    let i=0;
+
 
     for (let catData in allData) {
         let cat = document.querySelector(".cat" + catData + " .projects");
         cat.innerHTML= convertDataToHTML(allData[catData],catData );
     }
     
+}
+
+
+// ENGLISH
+
+let cat0DataEN = [
+    {Title:'Multimedia engineering student',
+        Description:'IMAC - ESIEE Paris - Web, video games, design and audiovisual ',
+        Icon: "images/pp.jpg"},
+
+    {Title:'Linktree',
+        Description:'Check my resume, LinkedIn and other links.',
+        Link:'https://linktr.ee/commandant.grant',
+        Icon: "images/icons/links.png"},
+
+    {Title:'About',
+        Description:'',
+        Icon: "images/icons/links.png"},
+    ]
+
+    let cat1DataEN = [
+
+        {Title:'Wendys Media Covers',
+        Description:'Website',
+        Year: 2023,
+        Icon: "images/icons/links.png"},
+    
+        {Title:'Super Season Racer',
+        Description:'Web game',
+        Year: 2023,
+        Icon: "images/icons/interactive.png"},
+    
+        {Title:'Maxi Casse Briques',
+        Description:'Game',
+        Year: 2023,
+        Icon: "images/icons/interactive.png",
+        Background: "images/projects/maxicassebriques.png"},
+    
+        {Title:'Luck & White',
+        Description:'Game',
+        Year: 2023,
+        Icon: "images/icons/interactive.png"},
+    
+        {Title:'Coollab',
+        Description:'Software, generative art, website',
+        Year: 2023,
+        Icon: "images/icons/links.png"},
+    
+        {Title:'numéro 10',
+        Description:'Game',
+        Year: 2022,
+        Icon: "images/icons/interactive.png"},
+    
+    ]
 
     
+let cat2DataEN = [
+    {Title:'Montréal Tattoo Festival',
+    Description:'Poster design',
+    Year: 2023,
+    Icon: "images/icons/2d.png"},
+
+    {Title:'Azurites',
+    Description:'Comic book',
+    Year: 2022,
+    Icon: "images/icons/2d.png"},
+
+    {Title:'∫.',
+    Description:'Drawing',
+    Year: 2022,
+    Icon: "images/icons/2d.png"},
+
+    
+    {Title:'InkTober',
+    Description:'Drawing',
+    Year: 2021,
+    Icon: "images/icons/2d.png"}
+]
+
+let cat3DataEN = [
+    {Title:'The Racer',
+    Description:'Motion capture, animation and 3D editing',
+    Year: 2023,
+    Icon: "images/icons/3d.png"}, 
+        
+    {Title:'Metropolis',
+    Description:'3D editing',
+    Year: 2023,
+    Icon: "images/icons/3d.png"}, 
+
+    {Title:'Lucario and micro-environment',
+    Description:'3D modeling',
+    Year: 2023,
+    Icon: "images/icons/3d.png"}, 
+
+    {Title:'Post-apo House',
+    Description:'3D modeling',
+    Year: 2023,
+    Icon: "images/icons/3d.png"}, 
+
+    {Title:'Infinitimac',
+    Description:'3D modeling and animation',
+    Year: 2022,
+    Icon: "images/icons/3d.png"}, 
+
+]
 
 
-}
+
+let cat4DataEN = [
+
+    {Title:'Migratory Birds And Why They Don\'t Fly Alone',
+    Description:'Title Sequence',
+    Year: 2023,
+    Icon: "images/icons/video.png"}, 
+
+    {Title:'Méduse',
+    Description:'Short film',
+    Year: 2022,
+    Icon: "images/icons/video.png"}, 
+
+    {Title:'Œ',
+    Description:'Short film',
+    Year: 2021,
+    Icon: "images/icons/video.png"}, 
+
+]
+
+// Musique
+
+let cat5DataEN = [
+
+    {Title:'5M ETG',
+    Description:'Music',
+    Year: 2022,
+    Icon: "images/icons/music.png"}, 
+
+]
+
+let allDataEN = [cat0DataEN, cat1DataEN, cat2DataEN, cat3DataEN, cat4DataEN, cat5DataEN, cat6Data];
