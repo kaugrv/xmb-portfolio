@@ -17,7 +17,7 @@ let cat0Data = [
 
     {Title:'À propos',
         Description:'',
-        Icon: "images/icons/links.png"},
+        Icon: "images/icons/profile.png"},
     ]
 
 
@@ -36,7 +36,6 @@ let cat1Data = [
     Year: 2023,
     Icon: "images/icons/links.png"},
 
-
     {Title:'Super Season Racer',
     Description:'Jeu vidéo web',
     Year: 2023,
@@ -45,18 +44,19 @@ let cat1Data = [
     {Title:'Maxi Casse Briques',
     Description:'Jeu vidéo',
     Year: 2023,
-    Icon: "images/icons/interactive.png",
-    Background: "images/projects/maxicassebriques.png"},
+    Icon: "images/icons/mcb.png",
+    Background: "images/projects/mcb.jpg"},
 
     {Title:'Luck & White',
     Description:'Jeu vidéo',
     Year: 2023,
-    Icon: "images/icons/interactive.png"},
+    Icon: "images/icons/lw.jpg",
+    Background: "images/projects/lw.jpg"},
 
     {Title:'Coollab',
     Description:'Logiciel, art génératif, web',
     Year: 2023,
-    Icon: "images/icons/links.png"},
+    Icon: "images/icons/coollab.png"},
 
     {Title:'numéro 10',
     Description:'Jeu vidéo',
@@ -76,18 +76,21 @@ let cat2Data = [
     {Title:'Azurites',
     Description:'Bande dessinée',
     Year: 2022,
-    Icon: "images/icons/2d.png"},
+    Icon: "images/icons/2d.png",
+    Background: "images/projects/azurites.jpg"},
 
     {Title:'∫.',
     Description:'Dessin',
     Year: 2022,
-    Icon: "images/icons/2d.png"},
+    Icon: "images/icons/2d.png",
+    Background: "images/projects/integrale.jpg"},
 
     
     {Title:'InkTober',
     Description:'Dessin',
     Year: 2021,
-    Icon: "images/icons/2d.png"}
+    Icon: "images/icons/2d.png",
+    Background: "images/projects/ink2021.jpg"}
 ]
 
 // 3D
@@ -96,27 +99,32 @@ let cat3Data = [
     {Title:'The Racer',
     Description:'Motion capture, animation et compositing 3D',
     Year: 2023,
-    Icon: "images/icons/3d.png"}, 
+    Icon: "images/icons/3d.png",
+    Background: "images/projects/racer.jpg"}, 
         
     {Title:'Metropolis',
     Description:'Compositing 3D',
     Year: 2023,
-    Icon: "images/icons/3d.png"}, 
+    Icon: "images/icons/3d.png", 
+    Background: "images/projects/metropolis.jpg"}, 
 
     {Title:'Lucario et micro-environnement',
     Description:'Modélisation 3D',
     Year: 2023,
-    Icon: "images/icons/3d.png"}, 
+    Icon: "images/icons/3d.png",
+    Background: "images/projects/lucario.jpg"}, 
 
     {Title:'Maison Post-Apocalyptique',
     Description:'Modélisation 3D',
     Year: 2023,
-    Icon: "images/icons/3d.png"}, 
+    Icon: "images/icons/3d.png",
+    Background: "images/projects/postapo.jpg"}, 
 
     {Title:'Infinitimac',
     Description:'Modélisation et animation 3D',
     Year: 2022,
-    Icon: "images/icons/3d.png"}, 
+    Icon: "images/icons/3d.png",
+    Background: "images/projects/infinitimac.gif"}, 
 
 ]
 
@@ -127,7 +135,9 @@ let cat4Data = [
     {Title:'Migratory Birds And Why They Don\'t Fly Alone',
     Description:'Générique',
     Year: 2023,
-    Icon: "images/icons/video.png"}, 
+    Icon: "images/icons/video.png",
+
+    Background: "images/projects/migratory.jpg"}, 
 
     {Title:'Méduse',
     Description:'Court-métrage',
@@ -223,15 +233,30 @@ console.log(BackgroundImg);
 function convertDataToHTML(catData, i) {
 
     let ch = '';
+    let pch = '';
 
     for (const key in catData) {
-        ch += `<div class="project proj${key}">
+        pch = `<div class="project proj${key}">
         <img src="${catData[key].Icon}" alt="" class="project-icon">
         <div class="proj-text">
           <span class="proj-title">${catData[key].Title}</span><br>
           <span class="proj-desc">${catData[key].Description}${catData[key].Year !== undefined ? ', ' + catData[key].Year : ''}</span>
         </div>
       </div>`;
+
+      // Logo maxi casse briques : pas de AA
+      if (catData[key].Icon == "images/icons/mcb.png"){
+        pch = `<div class="project proj${key}">
+        <img src="${catData[key].Icon}" alt="" class="project-icon" style="image-rendering:pixelated;">
+        <div class="proj-text">
+          <span class="proj-title">${catData[key].Title}</span><br>
+          <span class="proj-desc">${catData[key].Description}${catData[key].Year !== undefined ? ', ' + catData[key].Year : ''}</span>
+        </div>
+      </div>`;
+
+      }
+        ch += pch;
+
         nbProj[i]++;
 
     }
@@ -253,6 +278,32 @@ function initProjects(allData) {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ENGLISH

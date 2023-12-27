@@ -1,3 +1,10 @@
+/* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
+
+
+    elem.webkitRequestFullscreen();
+
+
 // Horloge
 
 function startTime() {
@@ -66,22 +73,59 @@ function focusProj() {
   // Nb projets total de la catégorie actuelle (exemple : 5 projets dans cat0 : [5, ..., ..., ..., ..., ...])
   let nbProjI = nbProj[currentCat];
 
-  if (BackgroundImg[currentCat][currentProj[currentCat]]) {
-    
-    gsap.to("html", {
-      duration: 0.3,
-      ease: "power3.out",
-      backgroundImage:'url('+BackgroundImg[currentCat][currentProj[currentCat]]+')',
+  gsap.to("#background-video", {
+    duration: 1,
+    opacity:1,
+    ease: "power3.out",
     });
+
+  if (BackgroundImg[currentCat][currentProj[currentCat]]) {
 
     gsap.to("#background-video", {
       duration: 1,
-      opacity:0
+      opacity:0,
+      delay:1
       });
     
-  }
+    gsap.to("html", {
+      duration: 0,
+      ease: "power3.out",
+      background:'url('+BackgroundImg[currentCat][currentProj[currentCat]]+') no-repeat center center fixed',
+      delay:1
+    });
 
-  console.log(BackgroundImg[currentCat][currentProj[currentCat]]);
+
+    
+    
+  } 
+
+  
+
+  let commands = document.querySelector('#commands');
+
+
+  if ((Links[currentProj[currentCat]] && currentCat===0) || currentCat===6) {
+   
+    gsap.to(commands, {
+      duration:1,
+      ease: "power3.out",
+      innerHTML:"Entrée pour accéder au site.",
+      opacity:1
+    });
+
+  }else {
+       
+    gsap.to(commands, {
+      duration:1,
+      ease: "power3.out",
+      innerHTML:"Pour naviguer, utilisez les flèches ou bien le curseur et la molette.",
+      opacity:1
+    });
+
+
+  }
+  
+
   
 
   // On parcourt tous les projets de la catégorie actuelle...
@@ -164,6 +208,8 @@ document.body.addEventListener("keydown", (e) => {
     });
 
     forth.play();
+    focusCat();
+    focusProj();
 
     // Haut (projet)
   } else if (e.key === "ArrowUp") {
@@ -181,6 +227,8 @@ document.body.addEventListener("keydown", (e) => {
     });
 
     forth.play();
+    focusCat();
+    focusProj();
 
     // Droite (catégorie)
   } else if (e.key === "ArrowRight") {
@@ -195,6 +243,8 @@ document.body.addEventListener("keydown", (e) => {
     });
 
     forth.play();
+    focusCat();
+    focusProj();
 
     // Gauche (catégorie)
   } else if (e.key === "ArrowLeft") {
@@ -208,10 +258,11 @@ document.body.addEventListener("keydown", (e) => {
       ease: "power3.out",
     });
     forth.play();
+    focusCat();
+    focusProj();
   }
 
-  focusCat();
-  focusProj();
+
 });
 
 // Navigation souris
@@ -343,10 +394,10 @@ document.body.addEventListener("keydown", (e) => {
   }
 });
 
+
 // let currentLan = "FR";
 
 // let languageButton =  document.querySelector("#language-selector");
-// let commands = document.querySelector('#commands');
 
 // function switchLanguage() {
 //   if (currentLan=="FR") {
