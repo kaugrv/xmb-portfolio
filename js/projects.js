@@ -7,7 +7,7 @@ let nbProj = [0, 0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
 // Wendy Gervais
 let cat0Data = [
     {Title:'Étudiante en école d\'ingénieurs multimédia',
-        Description:'IMAC - ESIEE Paris - Web, jeux vidéos, design et audiovisuel ',
+        Description:'IMAC - ESIEE Paris - Web, jeux vidéo, design et audiovisuel ',
         Icon: "images/pp.jpg"},
 
     {Title:'Linktree',
@@ -90,7 +90,7 @@ let cat2Data = [
     Description:'Dessin',
     Year: 2021,
     Icon: "images/icons/2d.png",
-    Background: "images/projects/ink2021.jpg"}
+    Background: "images/projects/ink.jpg"}
 ]
 
 // 3D
