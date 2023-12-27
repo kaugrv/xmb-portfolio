@@ -16,16 +16,16 @@
     />
   </head>
 
-
-
-  
   <body onload="startTime()">
     <audio src="sons/forth.mp3" id="forth"></audio>
     <audio src="sons/back.mp3" id="back"></audio>
 
     <div id="clock"></div>
     <div id="language-selector">EN</div>
-	<div id="commands">Utilisez les flèches et la touche ENTRÉE pour naviguer, ou le curseur et la molette.</div>
+    <div id="commands">
+      Utilisez les flèches et la touche ENTRÉE pour naviguer, ou le curseur et
+      la molette.
+    </div>
 
     <div class="menu">
       <div class="category cat0">
@@ -35,9 +35,7 @@
           >
         </div>
 
-        <div class="projects">
-
-        </div>
+        <div class="projects"></div>
       </div>
 
       <div class="category cat1">
@@ -73,11 +71,18 @@
         </div>
         <div class="projects"></div>
       </div>
+
+      <div class="category cat6">
+        <div class="title">
+          <img src="images/icons/amis.png" alt="" /><span>Ami.es</span>
+        </div>
+        <div class="projects"></div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-	<script src="js/projects.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

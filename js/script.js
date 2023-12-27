@@ -33,7 +33,7 @@ gsap.defaults({
 initProjects();
 
 let currentCat = 0; // Catégorie actuelle
-let currentProj = [0, 0, 0, 0, 0, 0]; // Projet actuel pour chacune des catégories
+let currentProj = [0, 0, 0, 0, 0, 0, 0]; // Projet actuel pour chacune des catégories
 
 focusCat();
 focusProj();

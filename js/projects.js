@@ -1,7 +1,7 @@
 
 
-let nbCat = 6;
-let nbProj = [0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
+let nbCat = 7;
+let nbProj = [0, 0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
 
 
 // Wendy Gervais
@@ -135,7 +135,44 @@ let cat5Data = [
 
 ]
 
-let allData = [cat0Data, cat1Data, cat2Data, cat3Data, cat4Data, cat5Data]
+let cat6Data = [
+
+    {Title:'Tristan Debeaune',
+    Description:'',
+    Link:"https://triste_temps.artstation.com/",
+    Icon: "images/icons/interactive.png"}, 
+
+    {Title:'Emily-Rose Strich',
+    Description:'',
+    Icon: "images/icons/2d.png"}, 
+
+    {Title:'Romain Serres',
+    Description:'',
+    Icon: "images/icons/3d.png"}, 
+
+    
+    {Title:'Mattéo Leclercq',
+    Description:'',
+    Icon: "images/icons/links.png"}, 
+
+    {Title:'Axel Dona',
+    Description:'',
+    Icon: "images/icons/video.png"}, 
+
+    {Title:'girlfriendcore',
+    Description:'',
+    Link:"https://soundcloud.com/girlfriendcore",
+    Icon: "images/icons/music.png"}, 
+
+    {Title:'Sarah KG Photographie',
+    Description:'',
+    Icon: "images/icons/2d.png"}, 
+
+
+
+]
+
+let allData = [cat0Data, cat1Data, cat2Data, cat3Data, cat4Data, cat5Data, cat6Data]
 
 function convertDataToHTML(catData, i) {
 
@@ -150,6 +187,7 @@ function convertDataToHTML(catData, i) {
         </div>
       </div>`;
         nbProj[i]++;
+
     }
 
     return ch;
@@ -160,10 +198,15 @@ function convertDataToHTML(catData, i) {
 
 function initProjects() {
 
+    let i=0;
+
     for (let catData in allData) {
         let cat = document.querySelector(".cat" + catData + " .projects");
         cat.innerHTML= convertDataToHTML(allData[catData],catData );
     }
+    
+
+    
 
 
 }
