@@ -17,14 +17,19 @@
 body {
   width: 100%;
   margin: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
 
   background: url("../images/background.jpg") no-repeat center center fixed;
 
   font-family: "Rodin", sans-serif;
   color: #d8d8d8;
   font-weight: 500;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.non-scrollable {
+  overflow-y: hidden;
 }
 
 ::selection {
@@ -75,7 +80,7 @@ body {
   bottom: 0;
   right: 0;
   font-size: 0.8em;
-  z-index: 30;
+  z-index: 100;
 }
 
 #language-selector {
@@ -174,4 +179,48 @@ body {
   box-shadow: 2px 2px 5px black;
 
   margin: 10px;
+}
+
+.project-content {
+  text-align: justify;
+
+  backdrop-filter: blur(20px);
+
+  z-index: 50;
+  position: absolute;
+
+  right: 0;
+  margin: 50px;
+  padding: 50px;
+
+  overflow-y: auto;
+  max-height: 65vh;
+  width: 55vw;
+
+  display: none;
+}
+
+.project-content img {
+  width: 40%;
+  margin: 2vh 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.232);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.521);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffffd4;
 }

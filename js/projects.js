@@ -274,8 +274,6 @@ for (let i in allDataFR) {
   BackgroundImg.push(catBGImg);
 }
 
-console.log(BackgroundImg);
-
 function convertDataToHTML(catData, i) {
   let ch = "";
   let pch = "";
@@ -321,6 +319,22 @@ function initProjects(allData) {
     cat.innerHTML = convertDataToHTML(allData[catData], catData);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ENGLISH
 

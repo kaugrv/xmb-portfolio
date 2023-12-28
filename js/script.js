@@ -21,7 +21,8 @@ function checkTime(i) {
   return i;
 }
 
-/* Register */
+// GSAP
+
 gsap.registerPlugin(ScrollTrigger);
 
 /* Default */
@@ -45,16 +46,16 @@ let forth = document.querySelector("#forth");
 function focusCat() {
   // Toutes les catégories sont à opacité 0.5 et ont titre et projet cachés...
   for (let i = 0; i < nbCat; i++) {
-    document.querySelector(".cat" + i + " .title span").style.display = "none";
     document.querySelector(".cat" + i + " .projects").style.display = "none";
+    document.querySelector(".cat" + i + " .title span").style.display = "none";
     document.querySelector(".cat" + i + " .title ").style.opacity = "0.5";
 
-    // ... sauf la catégorie actuelle (titre et projets afficghés + opacité 1)
+    // ... sauf la catégorie actuelle (titre et projets affichés + opacité 1)
     if (i === currentCat) {
+      document.querySelector(".cat" + i + " .projects").style.display = "flex";
       document.querySelector(".cat" + i + " .title span").style.display =
         "block";
       document.querySelector(".cat" + i + " .title ").style.opacity = "1";
-      document.querySelector(".cat" + i + " .projects").style.display = "flex";
     }
   }
 }
@@ -66,9 +67,9 @@ function focusProj() {
   // Nb projets total de la catégorie actuelle (exemple : 5 projets dans cat0 : [5, ..., ..., ..., ..., ...])
   let nbProjI = nbProj[currentCat];
 
-  console.log(BackgroundImg[currentCat][currentProj[currentCat]]);
-
+  // Affichage de l'image de fond (s'il y en a une)
   if (BackgroundImg[currentCat][currentProj[currentCat]]) {
+    // Fade in video
     gsap.to("#background-video", {
       duration: 0.5,
       opacity: 1,
@@ -76,12 +77,14 @@ function focusProj() {
       delay: 0,
     });
 
+    // Fade out video
     gsap.to("#background-video", {
       duration: 0.5,
       opacity: 0,
       delay: 1,
     });
 
+    // Changement de l'url de l'image de fond (projet)
     gsap.to("html", {
       duration: 0,
       ease: "power3.out",
@@ -93,6 +96,7 @@ function focusProj() {
     });
   }
 
+  // Fade in video (si pas d'image de fond pour le projet)
   if (BackgroundImg[currentCat][currentProj[currentCat]] === undefined) {
     gsap.to("#background-video", {
       duration: 1,
@@ -102,35 +106,41 @@ function focusProj() {
     });
   }
 
+  // Changement du message en bas à droite (commandes)
   let commands = document.querySelector("#commands");
 
   if (
+    // Liens de moi et ami.es
     (Links[currentProj[currentCat]] && currentCat === 0) ||
     currentCat === 6
   ) {
     gsap.to(commands, {
       duration: 1,
       ease: "power3.out",
-      innerHTML: "Entrée pour accéder au site.",
+      innerHTML: "↵ Entrée pour accéder au site.",
       opacity: 1,
     });
   } else {
+    // Message par défaut
     gsap.to(commands, {
       duration: 1,
       ease: "power3.out",
-      innerHTML: "Pour naviguer, utilisez les flèches directionnelles.",
+      innerHTML: "⇅ ⇄ Pour naviguer, utilisez les flèches directionnelles.",
       opacity: 1,
     });
   }
 
+  // Accès au projet
   if (currentCat === 0 && currentProj[currentCat] === 3) {
     gsap.to(commands, {
       duration: 1,
       ease: "power3.out",
-      innerHTML: "Entrée pour accéder.",
+      innerHTML: "↵ Entrée pour accéder.",
       opacity: 1,
     });
   }
+
+  // AFFICHAGE
 
   // On parcourt tous les projets de la catégorie actuelle...
   for (let i = 0; i < nbProjI; i++) {
@@ -158,7 +168,7 @@ function focusProj() {
       }
     );
 
-    // Projet actuel : opacité 1 et le texte brille
+    // Projet actuel : opacité 1 et le texte brille + décalage vertical du i-1
     if (i === currentProjI) {
       gsap.to(".cat" + currentCat + " .projects" + " .proj" + i, {
         scale: 1.1,
@@ -274,7 +284,7 @@ document.body.addEventListener("keydown", (e) => {
 // Scroll vertical (projet) et scroll horizontal (catégories)
 
 document.body.addEventListener("wheel", function (event) {
-  if (!colorPanelOpen) {
+  if (!colorPanelOpen && !projectOpen) {
     // Scroll vers le bas
     if (event.deltaY > 0) {
       currentProj[currentCat]++;
@@ -314,59 +324,65 @@ document.body.addEventListener("wheel", function (event) {
 
 // Clic sur une catégorie pour y aller directement
 function jumpTo(n) {
-  currentCat = n;
-  if (currentCat >= nbCat) {
-    currentCat = nbCat - 1;
-  }
-  if (currentProj[currentCat] <= 0) {
-    currentProj[currentCat] = 0;
-  }
-  gsap.to(".menu", {
-    x: -200 * currentCat,
-    duration: 0.3,
-    ease: "power3.out",
-  });
+  if (!colorPanelOpen) {
+    currentCat = n;
+    if (currentCat >= nbCat) {
+      currentCat = nbCat - 1;
+    }
+    if (currentProj[currentCat] <= 0) {
+      currentProj[currentCat] = 0;
+    }
+    gsap.to(".menu", {
+      x: -200 * currentCat,
+      duration: 0.3,
+      ease: "power3.out",
+    });
 
-  focusCat();
-  focusProj();
+    focusCat();
+    focusProj();
 
-  forth.play();
+    forth.play();
+  }
 }
 
+// Clic sur un projet pour y aller directement
 function jumpToProj(n) {
-  if (n >= currentProj[currentCat]) {
-    currentProj[currentCat]++;
-  } else {
-    currentProj[currentCat]--;
+  if (!colorPanelOpen) {
+    if (n >= currentProj[currentCat]) {
+      currentProj[currentCat]++;
+    } else {
+      currentProj[currentCat]--;
+    }
+
+    if (currentProj[currentCat] >= nbProj[currentCat]) {
+      currentProj[currentCat] = nbProj[currentCat] - 1;
+    }
+
+    let catProj = document.querySelector(".cat" + currentCat + " .projects");
+    gsap.to(catProj, {
+      y: -20 * currentProj[currentCat] + "vh",
+      duration: 0.3,
+      ease: "power3.out",
+    });
+
+    if (currentProj[currentCat] <= 0) {
+      currentProj[currentCat] = 0;
+    }
+
+    gsap.to(catProj, {
+      y: -20 * currentProj[currentCat] + "vh",
+      duration: 0.3,
+      ease: "power3.out",
+    });
+
+    forth.play();
+
+    focusCat();
+    focusProj();
   }
-
-  if (currentProj[currentCat] >= nbProj[currentCat]) {
-    currentProj[currentCat] = nbProj[currentCat] - 1;
-  }
-
-  let catProj = document.querySelector(".cat" + currentCat + " .projects");
-  gsap.to(catProj, {
-    y: -20 * currentProj[currentCat] + "vh",
-    duration: 0.3,
-    ease: "power3.out",
-  });
-
-  if (currentProj[currentCat] <= 0) {
-    currentProj[currentCat] = 0;
-  }
-
-  gsap.to(catProj, {
-    y: -20 * currentProj[currentCat] + "vh",
-    duration: 0.3,
-    ease: "power3.out",
-  });
-
-  forth.play();
-
-  focusCat();
-  focusProj();
 }
 
+// add les jumpTo aux event listeners des icones
 function addJumpToEvents() {
   for (let i = 0; i < nbCat; i++) {
     document
@@ -389,20 +405,29 @@ addJumpToEvents();
 
 let colorPanelOpen = false;
 
+// Bouton Enter (liens et panneau couleur)
+
 document.body.addEventListener("keydown", (e) => {
+  // Liens des ami.es
   if (e.key === "Enter" && currentCat === 6) {
+    forth.play();
     if (friendLinks[currentProj[currentCat]])
       window.open(friendLinks[currentProj[currentCat]], "_blank");
   }
 
+  // Lien Linktree
   if (e.key === "Enter" && currentCat === 0) {
+    forth.play();
     if (Links[currentProj[currentCat]]) {
       window.open(Links[currentProj[currentCat]], "_blank");
     }
   }
 
+  // Panneau choix du thème / couleur (cat0 proj3)
   if (e.key === "Enter" && currentCat === 0 && currentProj[currentCat] === 3) {
+    // Ouvrir le panneau
     if (!colorPanelOpen) {
+      forth.play();
       document.querySelector(".color-change").style.display = "flex";
       gsap.from(".color-change", {
         duration: 1,
@@ -412,22 +437,150 @@ document.body.addEventListener("keydown", (e) => {
         duration: 1,
         ease: "power3.out",
         innerHTML:
-          "Utilisez les flèches pour sélectionner un thème. <br>Entrée pour quitter.",
+          "⇅ ⇄ Utilisez les flèches pour sélectionner un thème. <br>↵ Entrée pour quitter.",
         opacity: 1,
       });
       colorPanelOpen = true;
     } else {
+      // Fermer le panneau
+      back.play();
       document.querySelector(".color-change").style.display = "none";
       colorPanelOpen = false;
       gsap.to(commands, {
         duration: 1,
         ease: "power3.out",
-        innerHTML: "Entrée pour accéder.",
+        innerHTML: "↵ Entrée pour accéder.",
         opacity: 1,
       });
     }
   }
 });
+
+// Change la couleur du fond
+function changeColor(n) {
+  HR = n;
+  gsap.to("#background-video", {
+    duration: 1,
+    filter: "hue-rotate(" + HR + "deg)",
+  });
+}
+
+// Les boutons de couleur dans le panneau couleur : 12 boutons sur 360deg de la hue rotate (360/12=30)
+function initColors() {
+  let menu = document.querySelector(".color-change");
+
+  for (let i = 0; i < 12; i++) {
+    menu.innerHTML += `<div class="color" id="color${i}"></div>`;
+
+    document.querySelector(`#color${i}`).style.filter =
+      "hue-rotate(" + i * 30 + "deg)";
+  }
+}
+
+initColors();
+
+// Par défaut, hue rotate à 0. Le premier bouton est sélectionné
+let currentColor = 0;
+document.querySelector("#color0").style.boxShadow = "2px 2px 5px white";
+
+// Flèches haut/bas pour choisir couleur
+document.body.addEventListener("keydown", (e) => {
+  if (colorPanelOpen) {
+    // Bas
+    if (e.key === "ArrowDown") {
+      currentColor += 1;
+      forth.play();
+
+      if (currentColor > 11) {
+        currentColor = 11;
+      }
+
+      changeColor(currentColor * 30);
+
+      for (let i = 0; i < 12; i++) {
+        document.querySelector("#color" + i).style.boxShadow =
+          "2px 2px 5px black";
+      }
+      document.querySelector("#color" + (currentColor % 12)).style.boxShadow =
+        "2px 2px 5px white";
+    }
+
+    // Haut
+    if (e.key === "ArrowUp") {
+      forth.play();
+      currentColor -= 1;
+
+      if (currentColor < 0) {
+        currentColor = 0;
+      }
+
+      for (let i = 0; i < 12; i++) {
+        document.querySelector("#color" + i).style.boxShadow =
+          "2px 2px 5px black";
+      }
+      document.querySelector("#color" + (currentColor % 12)).style.boxShadow =
+        "2px 2px 5px white";
+    }
+    changeColor(currentColor * 30);
+  }
+});
+
+// Gestion de l'entrée dans un projet
+
+let projectOpen = false;
+
+function enterProject() {
+  projectOpen = true;
+
+  let nbProjI = nbProj[currentCat];
+  let currentProjI = currentProj[currentCat];
+
+  // Affiche le texte du projet
+
+  document.querySelector(".project-content").style.display = "block";
+  gsap.from(".project-content", {
+    duration: 1,
+    ease: "power3.out",
+    opacity: 0,
+  });
+
+  // On parcourt tous les projets de la catégorie actuelle...
+  for (let i = 0; i < nbProjI; i++) {
+    // Opacité 0
+    gsap.to(".cat" + currentCat + " .projects" + " .proj" + i, {
+      duration: 0.3,
+      ease: "power3.out",
+      opacity: 0,
+    });
+
+    // Projet actuel : opacité 1 et le texte brille
+    if (i === currentProjI) {
+      gsap.to(".cat" + currentCat + " .projects" + " .proj" + i, {
+        scale: 1.5,
+        duration: 0.3,
+        ease: "power3.out",
+        opacity: 1,
+      });
+
+      gsap.to(".proj" + i + " .proj-text", {
+        scale: 1.3,
+        duration: 0.3,
+        ease: "power3.out",
+        opacity: 0,
+        y: 0,
+      });
+    }
+  }
+}
+
+// Bouton Enter (enter project)
+document.body.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && currentCat === 1 && currentProj[currentCat] === 0) {
+    enterProject();
+  }
+});
+
+// Traduction anglais / français
 
 // let currentLan = "FR";
 
@@ -450,74 +603,3 @@ document.body.addEventListener("keydown", (e) => {
 // }
 
 // languageButton.addEventListener("click", function(){switchLanguage();});
-
-function changeColor(n) {
-  HR = n;
-  gsap.to("#background-video", {
-    duration: 1,
-    filter: "hue-rotate(" + HR + "deg)",
-  });
-}
-
-function initColors() {
-  let menu = document.querySelector(".color-change");
-
-  for (let i = 0; i < 12; i++) {
-    menu.innerHTML += `<div class="color" id="color${i}"></div>`;
-
-    document.querySelector(`#color${i}`).style.filter =
-      "hue-rotate(" + i * 30 + "deg)";
-  }
-}
-
-initColors();
-
-function selectColor(n) {
-  gsap.to("#background-video", {
-    duration: 1,
-    filter: "hue-rotate(" + n + "deg)",
-    delay: 0.5,
-  });
-}
-
-let currentColor = 0;
-
-document.querySelector("#color0").style.boxShadow = "2px 2px 5px white";
-
-document.body.addEventListener("keydown", (e) => {
-  if (colorPanelOpen) {
-    // Bas (projet)
-    if (e.key === "ArrowDown") {
-      currentColor += 1;
-
-      if (currentColor > 11) {
-        currentColor = 11;
-      }
-
-      changeColor(currentColor * 30);
-
-      for (let i = 0; i < 12; i++) {
-        document.querySelector("#color" + i).style.boxShadow =
-          "2px 2px 5px black";
-      }
-      document.querySelector("#color" + (currentColor % 12)).style.boxShadow =
-        "2px 2px 5px white";
-    }
-
-    if (e.key === "ArrowUp") {
-      currentColor -= 1;
-
-      if (currentColor < 0) {
-        currentColor = 0;
-      }
-
-      for (let i = 0; i < 12; i++) {
-        document.querySelector("#color" + i).style.boxShadow =
-          "2px 2px 5px black";
-      }
-      document.querySelector("#color" + (currentColor % 12)).style.boxShadow =
-        "2px 2px 5px white";
-    }
-    changeColor(currentColor * 30);
-  }
-});
