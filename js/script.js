@@ -148,6 +148,7 @@ function focusProj() {
       duration: 1,
       ease: "power3.out",
       innerHTML: "⇅ ⇄ Pour naviguer, utilisez les flèches directionnelles.",
+
       opacity: 1,
     });
   }
@@ -460,6 +461,7 @@ document.body.addEventListener("keydown", (e) => {
         ease: "power3.out",
         innerHTML:
           "⇅ ⇄ Utilisez les flèches pour sélectionner un thème. <br>↵ Entrée pour quitter.",
+
         opacity: 1,
       });
       colorPanelOpen = true;
@@ -554,8 +556,11 @@ let projectOpen = false;
 function enterProject() {
   projectOpen = true;
 
+
   let nbProjI = nbProj[currentCat];
   let currentProjI = currentProj[currentCat];
+
+  fillProjectContent(currentCat, currentProjI);
 
   // Affiche le texte du projet
 
@@ -603,6 +608,7 @@ function enterProject() {
 
 function quitProject() {
   projectOpen = false;
+  window.scrollTo(0,0); 
 
   let nbProjI = nbProj[currentCat];
   let currentProjI = currentProj[currentCat];
@@ -649,6 +655,12 @@ document.body.addEventListener("keydown", (e) => {
     if (!projectOpen) enterProject();
     else quitProject();
   }
+
+  if (e.key === "Enter" && currentCat === 0 && currentProj[currentCat] === 2) {
+    if (!projectOpen) enterProject();
+    else quitProject();
+  }
+
 });
 
 // Traduction anglais / français
