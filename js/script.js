@@ -1,3 +1,25 @@
+gsap.to(".voile", {
+  duration: 1,
+  ease: "power3.out",
+  display:"none",
+  delay:0.1,
+});
+
+gsap.from("body", {
+  duration: 3,
+  ease: "power3.out",
+  opacity: 0,
+  delay:1,
+});
+
+gsap.from(".menu", {
+  scale:1.1,
+  duration: 2,
+  ease: "power3.out",
+  opacity: 0,
+  delay:3,
+});
+
 // Horloge
 
 function startTime() {
@@ -208,7 +230,7 @@ function focusProj() {
 document.body.addEventListener("keydown", (e) => {
   if (!colorPanelOpen) {
     // Bas (projet)
-    if (e.key === "ArrowDown") {
+    if (e.key === "ArrowDown" && !projectOpen) {
       currentProj[currentCat]++;
 
       if (currentProj[currentCat] >= nbProj[currentCat]) {
@@ -227,7 +249,7 @@ document.body.addEventListener("keydown", (e) => {
       focusProj();
 
       // Haut (projet)
-    } else if (e.key === "ArrowUp") {
+    } else if (e.key === "ArrowUp"  && !projectOpen) {
       currentProj[currentCat]--;
 
       if (currentProj[currentCat] <= 0) {
@@ -246,7 +268,7 @@ document.body.addEventListener("keydown", (e) => {
       focusProj();
 
       // Droite (catégorie)
-    } else if (e.key === "ArrowRight") {
+    } else if (e.key === "ArrowRight"  && !projectOpen) {
       currentCat++;
       if (currentCat >= nbCat) {
         currentCat = nbCat - 1;
@@ -262,7 +284,7 @@ document.body.addEventListener("keydown", (e) => {
       focusProj();
 
       // Gauche (catégorie)
-    } else if (e.key === "ArrowLeft") {
+    } else if (e.key === "ArrowLeft"  && !projectOpen) {
       currentCat--;
       if (currentCat <= 0) {
         currentCat = 0;
@@ -324,7 +346,7 @@ document.body.addEventListener("wheel", function (event) {
 
 // Clic sur une catégorie pour y aller directement
 function jumpTo(n) {
-  if (!colorPanelOpen) {
+  if (!colorPanelOpen && !projectOpen) {
     currentCat = n;
     if (currentCat >= nbCat) {
       currentCat = nbCat - 1;
@@ -347,7 +369,7 @@ function jumpTo(n) {
 
 // Clic sur un projet pour y aller directement
 function jumpToProj(n) {
-  if (!colorPanelOpen) {
+  if (!colorPanelOpen  && !projectOpen) {
     if (n >= currentProj[currentCat]) {
       currentProj[currentCat]++;
     } else {
@@ -417,8 +439,8 @@ document.body.addEventListener("keydown", (e) => {
 
   // Lien Linktree
   if (e.key === "Enter" && currentCat === 0) {
-    forth.play();
     if (Links[currentProj[currentCat]]) {
+      forth.play();
       window.open(Links[currentProj[currentCat]], "_blank");
     }
   }
@@ -458,13 +480,11 @@ document.body.addEventListener("keydown", (e) => {
 
 // Change la couleur du fond
 function changeColor(n) {
-  HR = n;
   gsap.to("#background-video", {
     duration: 1,
-    filter: "hue-rotate(" + HR + "deg)",
+    filter: "hue-rotate(" + n + "deg)",
   });
 
-  document.querySelector(".visit-projet-button").style.filter="hue-rotate(" + HR + "deg)";
 }
 
 // Les boutons de couleur dans le panneau couleur : 12 boutons sur 360deg de la hue rotate (360/12=30)
@@ -541,7 +561,7 @@ function enterProject() {
 
   document.querySelector(".project-content").style.display = "block";
   gsap.from(".project-content", {
-    duration: 1,
+    duration: 2,
     ease: "power3.out",
     opacity: 0,
   });
@@ -555,30 +575,79 @@ function enterProject() {
       opacity: 0,
     });
 
-    // Projet actuel : opacité 1 et le texte brille
     if (i === currentProjI) {
       gsap.to(".cat" + currentCat + " .projects" + " .proj" + i, {
         scale: 1.5,
-        duration: 0.3,
+        duration: 1,
         ease: "power3.out",
         opacity: 1,
       });
 
       gsap.to(".proj" + i + " .proj-text", {
         scale: 1.3,
-        duration: 0.3,
+        duration: 1,
         ease: "power3.out",
         opacity: 0,
         y: 0,
       });
     }
   }
+
+  gsap.to(commands, {
+    duration: 1,
+    ease: "power3.out",
+    innerHTML: "↵ Entrée pour quitter.",
+    opacity: 1,
+  });
+}
+
+function quitProject() {
+  projectOpen = false;
+
+  let nbProjI = nbProj[currentCat];
+  let currentProjI = currentProj[currentCat];
+
+  // Affiche le texte du projet
+
+  document.querySelector(".project-content").style.display = "none";
+
+  // On parcourt tous les projets de la catégorie actuelle...
+  for (let i = 0; i < nbProjI; i++) {
+    // Opacité 0
+    gsap.to(".cat" + currentCat + " .projects" + " .proj" + i, {
+      duration: 0.3,
+      ease: "power3.out",
+      opacity: 1,
+    });
+    if (i === currentProjI) {
+      gsap.to(".cat" + currentCat + " .projects" + " .proj" + i, {
+        scale: 1.1,
+        duration: 1,
+        ease: "power3.out",
+        opacity: 1,
+        delay: 0.2,
+      });
+
+      gsap.to(".proj" + i + " .proj-text", {
+        scale: 1.1,
+        duration: 1,
+        ease: "power3.out",
+        opacity: 1,
+        y: 0,
+        delay: 0.2,
+      });
+    }
+  }
+
+  focusProj();
 }
 
 // Bouton Enter (enter project)
 document.body.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && currentCat === 1 && currentProj[currentCat] === 0) {
-    enterProject();
+  console.log(projectOpen);
+  if (e.key === "Enter" && currentCat !== 0 && currentCat !== 6) {
+    if (!projectOpen) enterProject();
+    else quitProject();
   }
 });
 
