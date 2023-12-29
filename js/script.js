@@ -463,6 +463,8 @@ function changeColor(n) {
     duration: 1,
     filter: "hue-rotate(" + HR + "deg)",
   });
+
+  document.querySelector(".visit-projet-button").style.filter="hue-rotate(" + HR + "deg)";
 }
 
 // Les boutons de couleur dans le panneau couleur : 12 boutons sur 360deg de la hue rotate (360/12=30)
