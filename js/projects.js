@@ -5,7 +5,7 @@ let nbProj = [0, 0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
 let cat0Data = [
   {
     Title: "Étudiante en école d'ingénieurs multimédia",
-    Description: "IMAC - ESIEE Paris - Web, jeux vidéo, design & audiovisuel. ",
+    Description: "IMAC (ESIEE Paris) et UQAT. Web, jeux vidéo, design & audiovisuel. ",
     Icon: "images/pp.jpg",
   },
 
@@ -16,7 +16,12 @@ let cat0Data = [
     Icon: "images/icons/links.png",
   },
 
-  { Title: "À propos", Description: "", Icon: "images/icons/profile.png" },
+  { Title: "À propos", Description: "", Icon: "images/icons/profile.png" ,
+
+  contentDesc:`<img src="images/pp.jpg" alt="" />Bonjour ! Je suis Wendy, ingénieure multimédia en France. <br> <br> Baignée dans les jeux vidéos et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
+  <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme cheffe de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
+  Contact : kau.grv@gmail.com`,
+},
 
   {
     Title: "Changer le thème",
@@ -446,6 +451,7 @@ function fillProjectContent(n, m) {
       
     </div>
   </div>`;
+
 }
 
 fillProjectContent(1, 1);

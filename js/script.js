@@ -142,6 +142,8 @@ function focusProj() {
       innerHTML: "↵ Entrée pour accéder au site.",
       opacity: 1,
     });
+  
+      
   } else {
     // Message par défaut
     gsap.to(commands, {
@@ -152,6 +154,19 @@ function focusProj() {
       opacity: 1,
     });
   }
+
+  if (
+    // Projets
+    (currentCat === 0 && currentProj[currentCat]===2 || currentCat > 0 &&  currentCat < nbCat-1)
+  ) {
+    gsap.to(commands, {
+      duration: 1,
+      ease: "power3.out",
+      innerHTML: "↵ Entrée pour accéder.",
+      opacity: 1,
+    });
+  }
+  
 
   // Accès au projet
   if (currentCat === 0 && currentProj[currentCat] === 3) {
@@ -371,11 +386,20 @@ function jumpTo(n) {
 // Clic sur un projet pour y aller directement
 function jumpToProj(n) {
   if (!colorPanelOpen  && !projectOpen) {
-    if (n >= currentProj[currentCat]) {
+    if (n > currentProj[currentCat]) {
       currentProj[currentCat]++;
-    } else {
+      forth.play();
+
+      focusCat();
+      focusProj();
+    } else if (n < currentProj[currentCat]) {
       currentProj[currentCat]--;
-    }
+      forth.play();
+
+      focusCat();
+      focusProj();
+    } else if  (currentProj[currentCat]===n) enterProject();
+
 
     if (currentProj[currentCat] >= nbProj[currentCat]) {
       currentProj[currentCat] = nbProj[currentCat] - 1;
@@ -398,11 +422,12 @@ function jumpToProj(n) {
       ease: "power3.out",
     });
 
-    forth.play();
-
-    focusCat();
-    focusProj();
   }
+
+  else if (currentProj[currentCat]===n && projectOpen) {
+    quitProject();
+  }
+  
 }
 
 // add les jumpTo aux event listeners des icones
@@ -487,6 +512,7 @@ function changeColor(n) {
     filter: "hue-rotate(" + n + "deg)",
   });
 
+  
 }
 
 // Les boutons de couleur dans le panneau couleur : 12 boutons sur 360deg de la hue rotate (360/12=30)
@@ -650,7 +676,7 @@ function quitProject() {
 
 // Bouton Enter (enter project)
 document.body.addEventListener("keydown", (e) => {
-  console.log(projectOpen);
+
   if (e.key === "Enter" && currentCat !== 0 && currentCat !== 6) {
     if (!projectOpen) enterProject();
     else quitProject();
