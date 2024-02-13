@@ -37,6 +37,17 @@ for (let i in cat0Data) {
 
 // Interactivité
 let cat1Data = [
+
+  {
+    Title: "Laisse-moi dormir",
+    Description: "Jeu web",
+    Year: 2024,
+    Icon: "images/icons/interactive.png",
+    contentDesc:`Jeu réalisé en 48h à l'occasion d'une GameJam. Le thème, imposé, était "Profondeurs", et la contrainte était d'inclure une forme de mise en abyme dans son jeu. Seule, j'ai choisi de rester très simple en réalisant un petit jeu web, le but est d'utiliser sa souris pour relier les étoiles de la page. J'ai codé le jeu principalement en Javascript en utilisant un peu les frameworks GSAP (animation) et p5 (dessin).`,
+    projectLink:"https://wendywendo.itch.io/laisse-moi-dormir",
+    Logiciels:["Photoshop", "HTML", "CSS", "Javascript", "GSAP", "p5"]
+  },
+
   {
     Title: "Wendys Media Covers",
     Description: "Site web",
@@ -56,10 +67,10 @@ let cat1Data = [
 
   {
     Title: "Super Season Racer",
-    Description: "Jeu vidéo web",
+    Description: "Jeu web",
     Year: 2023,
     Icon: "images/icons/interactive.png",
-    contentDesc:`<img src="images/projects/superseason_content.jpg" alt="" />Jeu réalisé lors d'un cours d'apprentissage des bases du Javascript. Le but était de réaliser une application interactive avec différents écrans (début, fin, game over...), un inventaire et une progression. J'ai donc imaginé un jeu où l'on doit ramasser des pièces avec la souris, il est aussi possible de gagner des bonus permettant de changer la couleur de son vaisseau ou la saison du jeu.`,
+    contentDesc:`<img src="images/projects/superseason_content.jpg" alt="" />Jeu réalisé lors d'un cours d'apprentissage des bases du Javascript. Le but était de réaliser une application interactive avec différents écrans (début, fin, game over...), un inventaire et une progression. <br> <br>J'ai donc imaginé un jeu où l'on doit ramasser des pièces avec la souris, il est aussi possible de gagner des bonus permettant de changer la couleur de son vaisseau ou la saison du jeu.`,
     projectLink:"https://espacedev.ca/uqat/arn2304/2023/jeux/jeu/05/",
     Logiciels:["Photoshop", "HTML", "CSS", "Javascript"]
   },
@@ -70,6 +81,8 @@ let cat1Data = [
     Year: 2023,
     Icon: "images/icons/mcb.png",
     Background: "images/projects/mcb.jpg",
+
+    contentDesc: `Jeu réalisé en 48h à l'occasion d'une GameJam. Le thème, imposé, était "Pause", et la contrainte était de ne pas faire apparaître d'humain dans le jeu. Nous étions une petite équipe et avons imaginé et codé Maxi Casse Briques, une version un peu particulière du célèbre mini-jeu car en plus de devoir casser les briques avec une balle en utilisant les flèches du clavier, le joueur sera constamment dérangé par des fenêtres apparaissant aléatoirement et qu'il devra fermer en utilisant sa souris. <br> <br>Nous étions deux du côté développement sur Unity, j'ai implementé les fenêtres du jeu et codé le gameplay en C#.`,
 
     projectLink:"https://rom1-le-pain.itch.io/maxi-casse-brique",
     Logiciels:["Unity", "C#", "Photoshop"],
@@ -84,6 +97,8 @@ let cat1Data = [
     Background: "images/projects/lw.jpg",
 
     projectLink:"https://wendywendo.itch.io/luck-white",
+
+    contentDesc: `Jeu réalisé pour un cours de mathématiques et probabilités. Le but était de créer un jeu utilisant l'aléatoire et d'inclure des lois mathématiques, nous avons donc imaginé Luck & White, un jeu "casino" à l'esthétique 8-bit basé sur le hasard. Le but est d'amasser le plus d'argent en 15 manches. <br> <br> Mon camarade a implementé les variables aléatoires et le système de jeu tandis que je me suis concentrée sur l'interface en créant les éléments graphiques sur Photoshop et les ayant intégrés ensuite dans Unity.`,
     
     Logiciels:["Unity", "C#", "Photoshop"],
     Equipe:["Tristan Debeaune"]
@@ -97,7 +112,9 @@ let cat1Data = [
 
     projectLink:"https://coollab-art.com/",
 
-    Logiciels:["Coollab", "C++", "GLSL", "Photoshop", "After Effects", "Notion"],
+    contentDesc: `Projet tutoré de quelques mois mené dans le cadre de ma formation d'ingénieur. Nous avons été une petite équipe de 5 missionnée de travailler sur le logiciel open-source Coollab, un logiciel destiné à faire de l'art génératif (image et vidéo). <br> <br> En plus d'avoir participé aux missions communes - développer de nouvelles fonctionnalités logicielles et des shaders (effets), créer des oeuvres pour tester les possibilités du logiciel et organiser la communication pour faire connaître celui-ci (vidéo promotionnelle, réseaux sociaux, site Internet), j'ai occupé au sein de mon équipe le rôle de cheffe de projet. Nous avons travaillé en méthode Agile et j'étais responsable de suivre l'avancée de notre équipe en faisant des points réguliers et en tenant un kanban à jour.<br> <br> Nous avons finalement eu la chance d'être invités à la Cité des Sciences et de l'Industrie pour présenter le logiciel pendant un week-end. `,
+
+    Logiciels:["Coollab", "C++", "GLSL", "Photoshop", "After Effects", "Notion", "React.js"],
     Equipe:["Lou Couard", "Tristan Debeaune", "Jules Fouchy", "Mattéo Leclercq", "Romain Serres"]
   },
 
@@ -108,6 +125,8 @@ let cat1Data = [
     Icon: "images/icons/interactive.png",
 
     projectLink:"https://rom1-le-pain.itch.io/numero-10",
+
+    contentDesc: `Jeu réalisé en 48h à l'occasion d'une GameJam, la première à laquelle j'ai participé. Le thème, imposé, était "Cour de récré", et la contrainte était d'utiliser une couleur dominante choisie au préalable. <br> <br>  J'ai principalement dessiné les éléments graphiques à la main. Numéro 10 n'est pas un projet complètement abouti mais nous avons beaucoup appris notamment sur le moteur Unity, que je découvrais alors. `,
     
     Logiciels:["Unity", "Blender", "GIMP"],
     Equipe:["Tristan Debeaune", "Romain Serres", "Silvère Timsit"]
