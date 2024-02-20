@@ -62,6 +62,7 @@ body {
 
 .category img {
   height: 10vh;
+  cursor: pointer;
 }
 
 .title {
@@ -310,5 +311,4 @@ li {
 }
 
 .project-content a {
-  text-shadow: 0px 0px 5px white;
 }

@@ -54,7 +54,7 @@ let cat1Data = [
     Description: "Jeu web",
     Year: 2024,
     Icon: "images/icons/links.png",
-    contentDesc:`Jeu réalisé en 48h à l'occasion d'une GameJam. Le thème, imposé, était "Profondeurs", et la contrainte était d'inclure une forme de mise en abyme dans son jeu. Seule, j'ai choisi de rester très simple en réalisant un petit jeu web, le but est d'utiliser sa souris pour relier les étoiles de la page. J'ai codé le jeu principalement en Javascript en utilisant un peu les frameworks GSAP (animation) et p5 (dessin).`,
+    contentDesc:`Jeu réalisé en 48h à l'occasion d'une GameJam. Le thème, imposé, était "Profondeurs", et la contrainte était d'inclure une forme de mise en abyme dans son jeu. <br> <br>Seule, j'ai choisi de rester très simple en réalisant un petit jeu web, le but est d'utiliser sa souris pour relier les étoiles de la page. J'ai codé le jeu principalement en Javascript en utilisant un peu les frameworks GSAP (animation) et p5 (dessin).`,
     projectLink:"https://wendywendo.itch.io/laisse-moi-dormir",
     Logiciels:["Photoshop", "HTML", "CSS", "Javascript", "GSAP", "p5"]
   },
@@ -187,6 +187,18 @@ let cat2Data = [
   },
 
   {
+    Title: "Cartographie de l'ISS",
+    Description: "Design",
+    Year: 2021,
+    Icon: "images/icons/2d.png",
+
+    contentDesc: `Exercice de design pour s'approprier la suite Adobe et les principes d'arts appliqués : réaliser et appliquer une charte graphique, des pictogrammes, une mise en page... <br><br> Nous avons "re-brandé" et cartographié la Station Spatiale Internationale en adoptant un style moderne rappelant la technologie et l'espace. `,
+    
+    Equipe:["Axel Dona"],
+    Logiciels:["InDesign", "Illustrator", "Photoshop"]
+  },
+
+  {
     Title: "InkTober",
     Description: "Dessin",
     Year: 2021,
@@ -293,7 +305,7 @@ let cat4Data = [
 
     Background: "images/projects/migratory.jpg",
 
-    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/iD8X52fKtsQ?si=GcRI5lqPdG_mL-cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Générique d'un film fictif (2min09). Nous devions inventer le logo d'un studio et d'une boîte de production, ainsi que le synopsis d'un long-métrage, les noms des acteurs et équipe technique, et en réaliser le générique (ou "Title Sequence"). Nous avons donc écrit Migratory Birds (And Why They Don't Fly Alone), un road-movie des années 70, racontant l'histoire d'une américaine en cavale et d'un jeune britannique en quête d'aventures, sillonnant les routes des États-Unis. <br><br> Si nous avons imaginé et storyboardé le générique ensemble, mon binôme a modélisé et animé les plans sur Blender et j'ai fait tout le montage, l'editing et le sound design, sur After Effects. `,
+    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/iD8X52fKtsQ?si=GcRI5lqPdG_mL-cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Générique d'un film fictif (2min09). <br><br>Nous devions inventer le logo d'un studio et d'une boîte de production, ainsi que le synopsis d'un long-métrage, les noms des acteurs et équipe technique, et en réaliser le générique (ou "Title Sequence"). Nous avons donc écrit Migratory Birds (And Why They Don't Fly Alone), un road-movie des années 70, racontant l'histoire d'une américaine en cavale et d'un jeune britannique en quête d'aventures, sillonnant les routes des États-Unis. <br><br> Si nous avons imaginé et storyboardé le générique ensemble, mon binôme a modélisé et animé les plans sur Blender et j'ai fait tout le montage, l'editing et le sound design, sur After Effects. `,
 
     Logiciels:["Blender", "After Effects"],
     Equipe:["Tristan Debeaune"]
@@ -309,7 +321,7 @@ let cat4Data = [
 
     contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/_5DUpCFF6bg?si=Pb-4LdhLeXTKjpnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> "Ça fait quoi, d'aller plus vite que tout le monde ?"<br><br> Court-métrage de science-fiction (13min55) réalisé par Axel Dona. <br><br>J'ai principalement participé à l'écriture, au cadrage et au montage. J'apparais aussi en tant que figurante et comme doublure de Morgane, le personnage principal, une jeune femme qui semble (sur)vivre dans un monde où le temps s'est arrêté. Nous avons ainsi pu nous amuser à la réalisation et aux effets spéciaux pour simuler cette pause du cours du temps et en exploiter les rouages.`,
 
-    Logiciels:["Premiere Pro"],
+    Logiciels:["Premiere Pro", "After Effects", "Blender"],
     Equipe:["Benjamin Amrani", "Axel Dona", "Aurélien Droissart", "Tristan Debeaune"]
   },
 
