@@ -1,23 +1,25 @@
+// Animation de début
+
 gsap.to(".voile", {
   duration: 1,
   ease: "power3.out",
-  display:"none",
-  delay:0.1,
+  display: "none",
+  delay: 0.1,
 });
 
 gsap.from("body", {
   duration: 3,
   ease: "power3.out",
   opacity: 0,
-  delay:1,
+  delay: 1,
 });
 
 gsap.from(".menu", {
-  scale:1.1,
+  scale: 1.1,
   duration: 2,
   ease: "power3.out",
   opacity: 0,
-  delay:3,
+  delay: 3,
 });
 
 // Horloge
@@ -132,18 +134,16 @@ function focusProj() {
   let commands = document.querySelector("#commands");
 
   if (
-    // Liens de moi et ami.es
+    // Liens de moi et ami.es (cat 0 && possède un Link, ou cat 6)
     (Links[currentProj[currentCat]] && currentCat === 0) ||
     currentCat === 6
   ) {
     gsap.to(commands, {
       duration: 1,
       ease: "power3.out",
-      innerHTML: "↵ Entrée pour accéder au site.",
+      innerHTML: "↵ Entrée pour accéder au site (lien externe).",
       opacity: 1,
     });
-  
-      
   } else {
     // Message par défaut
     gsap.to(commands, {
@@ -156,20 +156,11 @@ function focusProj() {
   }
 
   if (
-    // Projets
-    (currentCat === 0 && currentProj[currentCat]===2 || currentCat > 0 &&  currentCat < nbCat-1)
+    // Projets "Accéder"
+    (currentCat === 0 &&
+      (currentProj[currentCat] === 1 || currentProj[currentCat] === 3)) ||
+    (currentCat > 0 && currentCat < nbCat - 1)
   ) {
-    gsap.to(commands, {
-      duration: 1,
-      ease: "power3.out",
-      innerHTML: "↵ Entrée pour accéder.",
-      opacity: 1,
-    });
-  }
-  
-
-  // Accès au projet
-  if (currentCat === 0 && currentProj[currentCat] === 3) {
     gsap.to(commands, {
       duration: 1,
       ease: "power3.out",
@@ -265,7 +256,7 @@ document.body.addEventListener("keydown", (e) => {
       focusProj();
 
       // Haut (projet)
-    } else if (e.key === "ArrowUp"  && !projectOpen) {
+    } else if (e.key === "ArrowUp" && !projectOpen) {
       currentProj[currentCat]--;
 
       if (currentProj[currentCat] <= 0) {
@@ -284,7 +275,7 @@ document.body.addEventListener("keydown", (e) => {
       focusProj();
 
       // Droite (catégorie)
-    } else if (e.key === "ArrowRight"  && !projectOpen) {
+    } else if (e.key === "ArrowRight" && !projectOpen) {
       currentCat++;
       if (currentCat >= nbCat) {
         currentCat = nbCat - 1;
@@ -300,7 +291,7 @@ document.body.addEventListener("keydown", (e) => {
       focusProj();
 
       // Gauche (catégorie)
-    } else if (e.key === "ArrowLeft"  && !projectOpen) {
+    } else if (e.key === "ArrowLeft" && !projectOpen) {
       currentCat--;
       if (currentCat <= 0) {
         currentCat = 0;
@@ -385,21 +376,41 @@ function jumpTo(n) {
 
 // Clic sur un projet pour y aller directement
 function jumpToProj(n) {
-  if (!colorPanelOpen  && !projectOpen) {
+  if (!colorPanelOpen && !projectOpen) {
     if (n > currentProj[currentCat]) {
+      // Droite
       currentProj[currentCat]++;
       forth.play();
 
       focusCat();
       focusProj();
     } else if (n < currentProj[currentCat]) {
+      // Gauche
       currentProj[currentCat]--;
       forth.play();
 
       focusCat();
       focusProj();
-    } else if  (currentProj[currentCat]===n) enterProject();
+    }
 
+    // On clique sur le projet "actuel"
+    else if (currentProj[currentCat] === n) {
+      if (currentCat !== 6 && currentCat !== 0) {
+        // Entrée projet (pas cat0 et cat6)
+        enterProject();
+      } else if (currentCat === 6 && friendLinks[currentProj[currentCat]]) {
+        // Liens amis (cat6)
+        window.open(friendLinks[currentProj[currentCat]], "_blank");
+      } else if (currentCat === 0 && Links[currentProj[currentCat]]) {
+        // Lien Linktree
+        window.open(Links[currentProj[currentCat]], "_blank");
+      } else if (currentCat === 0 && currentProj[currentCat] === 1) {
+        // Entrée projet A Propos
+        enterProject();
+      } else if (currentCat === 0 && currentProj[currentCat] === 3 ) {
+        openThemeChanger();
+      }
+    }
 
     if (currentProj[currentCat] >= nbProj[currentCat]) {
       currentProj[currentCat] = nbProj[currentCat] - 1;
@@ -421,13 +432,12 @@ function jumpToProj(n) {
       duration: 0.3,
       ease: "power3.out",
     });
-
-  }
-
-  else if (currentProj[currentCat]===n && projectOpen) {
+  } else if (currentProj[currentCat] === n && projectOpen) {
     quitProject();
   }
-  
+  else if (currentCat === 0 && currentProj[currentCat] === 3 && colorPanelOpen) {
+    openThemeChanger();
+  }
 }
 
 // add les jumpTo aux event listeners des icones
@@ -453,6 +463,39 @@ addJumpToEvents();
 
 let colorPanelOpen = false;
 
+function openThemeChanger() {
+  // Ouvrir le panneau
+  if (!colorPanelOpen) {
+    forth.play();
+    document.querySelector(".color-change").style.display = "flex";
+    gsap.from(".color-change", {
+      duration: 1,
+      x: 100,
+    });
+    gsap.to(commands, {
+      duration: 1,
+      ease: "power3.out",
+      innerHTML:
+        "⇅ ⇄ Utilisez les flèches pour sélectionner un thème. <br>↵ Entrée pour quitter.",
+
+      opacity: 1,
+    });
+    colorPanelOpen = true;
+  } else {
+    // Fermer le panneau
+    back.play();
+    document.querySelector(".color-change").style.display = "none";
+    colorPanelOpen = false;
+    gsap.to(commands, {
+      duration: 1,
+      ease: "power3.out",
+      innerHTML: "↵ Entrée pour accéder.",
+      opacity: 1,
+    });
+  }
+  
+}
+
 // Bouton Enter (liens et panneau couleur)
 
 document.body.addEventListener("keydown", (e) => {
@@ -473,35 +516,7 @@ document.body.addEventListener("keydown", (e) => {
 
   // Panneau choix du thème / couleur (cat0 proj3)
   if (e.key === "Enter" && currentCat === 0 && currentProj[currentCat] === 3) {
-    // Ouvrir le panneau
-    if (!colorPanelOpen) {
-      forth.play();
-      document.querySelector(".color-change").style.display = "flex";
-      gsap.from(".color-change", {
-        duration: 1,
-        x: 100,
-      });
-      gsap.to(commands, {
-        duration: 1,
-        ease: "power3.out",
-        innerHTML:
-          "⇅ ⇄ Utilisez les flèches pour sélectionner un thème. <br>↵ Entrée pour quitter.",
-
-        opacity: 1,
-      });
-      colorPanelOpen = true;
-    } else {
-      // Fermer le panneau
-      back.play();
-      document.querySelector(".color-change").style.display = "none";
-      colorPanelOpen = false;
-      gsap.to(commands, {
-        duration: 1,
-        ease: "power3.out",
-        innerHTML: "↵ Entrée pour accéder.",
-        opacity: 1,
-      });
-    }
+    openThemeChanger();
   }
 });
 
@@ -511,8 +526,6 @@ function changeColor(n) {
     duration: 1,
     filter: "hue-rotate(" + n + "deg)",
   });
-
-  
 }
 
 // Les boutons de couleur dans le panneau couleur : 12 boutons sur 360deg de la hue rotate (360/12=30)
@@ -582,6 +595,7 @@ let projectOpen = false;
 function enterProject() {
   projectOpen = true;
 
+  window.scrollTo(0, 0);
 
   let nbProjI = nbProj[currentCat];
   let currentProjI = currentProj[currentCat];
@@ -634,7 +648,6 @@ function enterProject() {
 
 function quitProject() {
   projectOpen = false;
-  window.scrollTo(0,0); 
 
   let nbProjI = nbProj[currentCat];
   let currentProjI = currentProj[currentCat];
@@ -676,39 +689,15 @@ function quitProject() {
 
 // Bouton Enter (enter project)
 document.body.addEventListener("keydown", (e) => {
-
+  // Projets normaux
   if (e.key === "Enter" && currentCat !== 0 && currentCat !== 6) {
     if (!projectOpen) enterProject();
     else quitProject();
   }
 
-  if (e.key === "Enter" && currentCat === 0 && currentProj[currentCat] === 2) {
+  // A propos
+  if (e.key === "Enter" && currentCat === 0 && currentProj[currentCat] === 1) {
     if (!projectOpen) enterProject();
     else quitProject();
   }
-
 });
-
-// Traduction anglais / français
-
-// let currentLan = "FR";
-
-// let languageButton =  document.querySelector("#language-selector");
-
-// function switchLanguage() {
-//   if (currentLan=="FR") {
-//     currentLan="EN";
-//     languageButton.innerHTML="FR";
-//     commands.innerHTML="Use whether the arrows or your cursor and wheel to browse."
-//     initProjects(allDataEN);
-//   }
-//   else {
-//     currentLan="FR";
-//     languageButton.innerHTML="EN";
-//     commands.innerHTML="Pour naviguer, utilisez les flèches ou bien le curseur et la molette."
-//     initProjects(allDataFR);
-//   }
-
-// }
-
-// languageButton.addEventListener("click", function(){switchLanguage();});

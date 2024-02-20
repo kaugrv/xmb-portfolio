@@ -1,4 +1,4 @@
-let nbCat = 7;
+let nbCat = 7; // Bombre de catégories (Interactivité, 3D...)
 let nbProj = [0, 0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
 
 // Wendy Gervais
@@ -6,8 +6,16 @@ let cat0Data = [
   {
     Title: "Étudiante en école d'ingénieurs multimédia",
     Description: "IMAC (ESIEE Paris) et UQAT. Web, jeux vidéo, design & audiovisuel. ",
-    Icon: "images/pp.jpg",
+    Icon: "images/pp-xmb-portfolio.jpg",
   },
+
+  
+  { Title: "À propos", Description: "", Icon: "images/icons/profile.png" ,
+
+  contentDesc:`<img src="images/pp-xmb-portfolio.jpg" alt="" />Bonjour ! Je suis Wendy, ingénieure multimédia en France. <br> <br> Baignée dans les jeux vidéos et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
+  <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme cheffe de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
+  Contact : kau.grv@gmail.com`,
+},
 
   {
     Title: "Linktree",
@@ -16,12 +24,6 @@ let cat0Data = [
     Icon: "images/icons/links.png",
   },
 
-  { Title: "À propos", Description: "", Icon: "images/icons/profile.png" ,
-
-  contentDesc:`<img src="images/pp.jpg" alt="" />Bonjour ! Je suis Wendy, ingénieure multimédia en France. <br> <br> Baignée dans les jeux vidéos et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
-  <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme cheffe de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
-  Contact : kau.grv@gmail.com`,
-},
 
   {
     Title: "Changer le thème",
@@ -37,12 +39,21 @@ for (let i in cat0Data) {
 
 // Interactivité
 let cat1Data = [
+  {
+    Title: "HORNE",
+    Description: "Design de menu",
+    Year: 2024,
+    Icon: "images/icons/interactive.png",
+    contentDesc:``,
+    projectLink:"https://wendywendo.itch.io/horne",
+    Logiciels:["Unity", "Photoshop"]
+  },
 
   {
     Title: "Laisse-moi dormir",
     Description: "Jeu web",
     Year: 2024,
-    Icon: "images/icons/interactive.png",
+    Icon: "images/icons/links.png",
     contentDesc:`Jeu réalisé en 48h à l'occasion d'une GameJam. Le thème, imposé, était "Profondeurs", et la contrainte était d'inclure une forme de mise en abyme dans son jeu. Seule, j'ai choisi de rester très simple en réalisant un petit jeu web, le but est d'utiliser sa souris pour relier les étoiles de la page. J'ai codé le jeu principalement en Javascript en utilisant un peu les frameworks GSAP (animation) et p5 (dessin).`,
     projectLink:"https://wendywendo.itch.io/laisse-moi-dormir",
     Logiciels:["Photoshop", "HTML", "CSS", "Javascript", "GSAP", "p5"]
@@ -141,6 +152,8 @@ let cat2Data = [
     Description: "Design d'affiche",
     Year: 2023,
     Icon: "images/icons/2d.png",
+
+    contentDesc: `Petite affiche réalisée pour un cours de design au Québec. Le but était d'expérimenter avec Photoshop et les concepts de base de composition, de choix esthétiques... J'ai donc réalisé une affiche pour un festival de tatouage fictif en m'inspirant énormément de ce qui se faisait pour des événements similaires, notamment avec l'usage d'une figure féminine centrale, les ornements ou encore la palette de couleurs. `,
     
     Logiciels:["Photoshop"],
     
@@ -152,6 +165,8 @@ let cat2Data = [
     Year: 2022,
     Icon: "images/icons/2d.png",
     Background: "images/projects/azurites.jpg",
+
+    contentDesc: `BD réalisée dans le cadre des 23h de la Bande Dessinée 2022. Un thème ("Mythes Anachroniques") et une contrainte (Présence d'un élément bleu au long du récit) étaient imposés ainsi que le nombre de pages, 24. <br><br> Nous avons, en duo, dessiné et écrit sous la forme d'alexandrins, Azurites, le conte plein d'espoir de deux monolithes âmes soeurs. Nous nous sommes inspirés de récits shakespeariens, bibliques mais aussi de bandes dessinées, notamment des Yeux du Chat de Moebius et Jodorowsky. `,
 
     projectLink:"https://23hbd.com/participants/2022/commandant-grant",
     Logiciels:["Photoshop"],
@@ -165,6 +180,8 @@ let cat2Data = [
     Year: 2022,
     Icon: "images/icons/2d.png",
     Background: "images/projects/integrale.jpg",
+
+    contentDesc: `Affiche A0 (84,1 x 118,9 cm) réalisée aux feutres noirs.  `,
     
     Equipe:["Tristan Debeaune"]
   },
@@ -174,6 +191,9 @@ let cat2Data = [
     Description: "Dessin",
     Year: 2021,
     Icon: "images/icons/2d.png",
+    
+    contentDesc: `Quelques dessins aux feutres noirs réalisés lors du défi "InkTober" de 2021, consistant à réaliser un dessin par jour pendant tout le mois d'octobre. `,
+
     Background: "images/projects/ink.jpg",
   },
 ];
@@ -182,11 +202,26 @@ let cat2Data = [
 
 let cat3Data = [
   {
+    Title: "Diorama d'un.e voyant.e moderne",
+    Description: "Modélisation 3D",
+    Year: 2024,
+    Icon: "images/icons/3d.png",
+    projectLink:"https://skfb.ly/oQXZn",
+
+    Logiciels:["Maya", "Photoshop"]
+  },
+
+  {
     Title: "The Racer",
-    Description: "Motion capture, animation et compositing 3D",
+    Description: "Motion Capture et animation 3D",
     Year: 2023,
     Icon: "images/icons/3d.png",
     Background: "images/projects/racer.jpg",
+
+    contentDesc: `Vidéo réalisée entièrement en utilisant la technique de Motion Capture (capture de mouvement). <br><br>
+    Après avoir choisi un rig sur le site Mixamo.com, écrit un scénario et capté les mouvements d'un acteur dans la peau d'un personnage en 3D, nous avons nettoyé les animations puis intégré celles-ci dans une scène avec des objets, des personnages, des caméras et des lumières en utilisant le moteur Unreal 5 (partie sur laquelle j'ai le plus participé, me permettant d'apprendre à utiliser ce moteur de jeu). `,
+
+    projectLink: "https://www.youtube.com/watch?v=g5dnoDgv3nQ",
 
     Logiciels:["Motion Builder", "Unreal Engine 5", "After Effects"],
     Equipe:["Tristan Debeaune", "Samy Gaci", "Martin Rabadeux"]
@@ -198,6 +233,9 @@ let cat3Data = [
     Year: 2023,
     Icon: "images/icons/3d.png",
     Background: "images/projects/metropolis.jpg",
+
+    contentDesc: `Image réalisée avec le moteur de rendu Arnold sur 3ds Max. Le but n'était pas de modéliser des objets mais de rendre une image avec une belle composition, éclairage et effets. Nous nous sommes inspirés de plans du film Metropolis, mais aussi du Néo-Tokyo d'Akira ou encore de la BD "Les Cités obscures". `,
+    
     Logiciels:["3ds Max", "Photoshop"],
     Equipe:["Tristan Debeaune"]
   },
@@ -208,6 +246,9 @@ let cat3Data = [
     Year: 2023,
     Icon: "images/icons/3d.png",
     Background: "images/projects/lucario.jpg",
+
+    contentDesc: `Scène modélisée sur le logiciel 3ds Max. Nous avons modélisé des Pokémon et un micro-environnement dans lequel les placer, à la manière d'un petit diorama. `,
+
     Logiciels:["3ds Max"],
     Equipe:["Tristan Debeaune"]
   },
@@ -218,6 +259,9 @@ let cat3Data = [
     Year: 2023,
     Icon: "images/icons/3d.png",
     Background: "images/projects/postapo.jpg",
+    projectLink:"https://skfb.ly/oR6tH",
+    contentDesc: `Scène architecturale et objets modélisés sur le logiciel 3ds Max. `,
+
     Logiciels:["3ds Max"],
     Equipe:["Tristan Debeaune"]
   },
@@ -228,6 +272,11 @@ let cat3Data = [
     Year: 2022,
     Icon: "images/icons/3d.png",
     Background: "images/projects/infinitimac.gif",
+
+    projectLink:"https://www.youtube.com/watch?v=tNsp-72OZuw",
+    
+    contentDesc: `Scène modélisée sur Blender et rendu avec le moteur Eevee. Il s'agissait d'un projet à l'échelle de la classe, chacun.e devant modéliser et animer une séquence de quelques secondes sur le thème de son choix présentant un élément circulaire central. Le chargé de cours de Création 3D a ensuite assemblé toutes les séquences ! <br><br> J'ai choisi de créer une scène spatiale, l'effet "pixellisé" est voulu car inspiré de l'esthétique Demake (rappelant de vieux jeux, comme sur la Playstation 1).`,
+
     Logiciels:["Blender"]
   },
 ];
@@ -244,7 +293,7 @@ let cat4Data = [
 
     Background: "images/projects/migratory.jpg",
 
-    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/iD8X52fKtsQ?si=GcRI5lqPdG_mL-cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/iD8X52fKtsQ?si=GcRI5lqPdG_mL-cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Générique d'un film fictif (2min09). Nous devions inventer le logo d'un studio et d'une boîte de production, ainsi que le synopsis d'un long-métrage, les noms des acteurs et équipe technique, et en réaliser le générique (ou "Title Sequence"). Nous avons donc écrit Migratory Birds (And Why They Don't Fly Alone), un road-movie des années 70, racontant l'histoire d'une américaine en cavale et d'un jeune britannique en quête d'aventures, sillonnant les routes des États-Unis. <br><br> Si nous avons imaginé et storyboardé le générique ensemble, mon binôme a modélisé et animé les plans sur Blender et j'ai fait tout le montage, l'editing et le sound design, sur After Effects. `,
 
     Logiciels:["Blender", "After Effects"],
     Equipe:["Tristan Debeaune"]
@@ -258,7 +307,7 @@ let cat4Data = [
 
     Background: "images/projects/meduse.jpg",
 
-    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/_5DUpCFF6bg?si=Pb-4LdhLeXTKjpnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/_5DUpCFF6bg?si=Pb-4LdhLeXTKjpnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> "Ça fait quoi, d'aller plus vite que tout le monde ?"<br><br> Court-métrage de science-fiction (13min55) réalisé par Axel Dona. <br><br>J'ai principalement participé à l'écriture, au cadrage et au montage. J'apparais aussi en tant que figurante et comme doublure de Morgane, le personnage principal, une jeune femme qui semble (sur)vivre dans un monde où le temps s'est arrêté. Nous avons ainsi pu nous amuser à la réalisation et aux effets spéciaux pour simuler cette pause du cours du temps et en exploiter les rouages.`,
 
     Logiciels:["Premiere Pro"],
     Equipe:["Benjamin Amrani", "Axel Dona", "Aurélien Droissart", "Tristan Debeaune"]
@@ -270,9 +319,9 @@ let cat4Data = [
     Year: 2021,
     Icon: "images/icons/video.png",
 
-    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/JlQN5H2ydi8?si=sCPlXtKL-2B8OnQN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/JlQN5H2ydi8?si=sCPlXtKL-2B8OnQN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Court-métrage (7min44) réalisé par Mattéo Leclercq et Romain Serres. <br><br> Premier court-métrage auquel j'ai participé, j'ai principalement été cadreuse. Voyage solitaire et sans dialogue sur le thème du rêve et de l'étrange, Œ était surtout l'occasion d'expérimenter avec les fondements du cinéma et les techniques qui lui sont propres, en tournant nos séquences aussi bien en intérieur qu'en extérieur dans plusieurs endroits de la région parisienne.  `,
 
-    Logiciels:["Premiere Pro"],
+    Logiciels:["Premiere Pro", "After Effects"],
     Equipe:["Tristan Debeaune", "Quentin Huet", "Elise Massa", "Mattéo Leclercq", "Romain Serres"]
   },
 ];
@@ -286,10 +335,12 @@ let cat5Data = [
     Year: 2022,
     Icon: "images/icons/music.png",
 
+    
+
     Logiciels:["ProTools"],
     Equipe:["Tristan Debeaune"],
 
-    contentDesc:`<iframe width="315" height="315" src="https://www.youtube.com/embed/fSZmFKYWb-E?si=MgMCKMAm3PtviCfV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+    contentDesc:`<iframe width="315" height="315" src="https://www.youtube.com/embed/fSZmFKYWb-E?si=MgMCKMAm3PtviCfV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Composition (1min59). <br><br> Très inspirés par la musique concrète de Pierre Schaeffer, nous avons composé et mixé 5M ETG en enregistrant divers sons dans un appartement et dans l'immeuble : clés, porte qui grince, tapotements des doigts, horloge... et notamment la voix dans l'ascenseur, qui a donné son nom à cette oeuvre lorsqu'elle a scandé "cinquième étage".`
   },
 ];
 
@@ -473,189 +524,4 @@ function fillProjectContent(n, m) {
 
 }
 
-fillProjectContent(1, 1);
 
-
-
-
-
-
-
-
-
-
-// ENGLISH
-
-let cat0DataEN = [
-  {
-    Title: "Multimedia engineering student",
-    Description:
-      "IMAC - ESIEE Paris - Web, video games, design and audiovisual ",
-    Icon: "images/pp.jpg",
-  },
-
-  {
-    Title: "Linktree",
-    Description: "Check my resume, LinkedIn and other links.",
-    Link: "https://linktr.ee/commandant.grant",
-    Icon: "images/icons/links.png",
-  },
-
-  { Title: "About", Description: "", Icon: "images/icons/links.png" },
-];
-
-let cat1DataEN = [
-  {
-    Title: "Wendys Media Covers",
-    Description: "Website",
-    Year: 2023,
-    Icon: "images/icons/links.png",
-  },
-
-  {
-    Title: "Super Season Racer",
-    Description: "Web game",
-    Year: 2023,
-    Icon: "images/icons/interactive.png",
-  },
-
-  {
-    Title: "Maxi Casse Briques",
-    Description: "Game",
-    Year: 2023,
-    Icon: "images/icons/interactive.png",
-    Background: "images/projects/maxicassebriques.png",
-  },
-
-  {
-    Title: "Luck & White",
-    Description: "Game",
-    Year: 2023,
-    Icon: "images/icons/interactive.png",
-  },
-
-  {
-    Title: "Coollab",
-    Description: "Software, generative art, website",
-    Year: 2023,
-    Icon: "images/icons/links.png",
-  },
-
-  {
-    Title: "numéro 10",
-    Description: "Game",
-    Year: 2022,
-    Icon: "images/icons/interactive.png",
-  },
-];
-
-let cat2DataEN = [
-  {
-    Title: "Montréal Tattoo Festival",
-    Description: "Poster design",
-    Year: 2023,
-    Icon: "images/icons/2d.png",
-  },
-
-  {
-    Title: "Azurites",
-    Description: "Comic book",
-    Year: 2022,
-    Icon: "images/icons/2d.png",
-  },
-
-  {
-    Title: "∫.",
-    Description: "Drawing",
-    Year: 2022,
-    Icon: "images/icons/2d.png",
-  },
-
-  {
-    Title: "InkTober",
-    Description: "Drawing",
-    Year: 2021,
-    Icon: "images/icons/2d.png",
-  },
-];
-
-let cat3DataEN = [
-  {
-    Title: "The Racer",
-    Description: "Motion capture, animation and 3D editing",
-    Year: 2023,
-    Icon: "images/icons/3d.png",
-  },
-
-  {
-    Title: "Metropolis",
-    Description: "3D editing",
-    Year: 2023,
-    Icon: "images/icons/3d.png",
-  },
-
-  {
-    Title: "Lucario and micro-environment",
-    Description: "3D modeling",
-    Year: 2023,
-    Icon: "images/icons/3d.png",
-  },
-
-  {
-    Title: "Post-apo House",
-    Description: "3D modeling",
-    Year: 2023,
-    Icon: "images/icons/3d.png",
-  },
-
-  {
-    Title: "Infinitimac",
-    Description: "3D modeling and animation",
-    Year: 2022,
-    Icon: "images/icons/3d.png",
-  },
-];
-
-let cat4DataEN = [
-  {
-    Title: "Migratory Birds And Why They Don't Fly Alone",
-    Description: "Title Sequence",
-    Year: 2023,
-    Icon: "images/icons/video.png",
-  },
-
-  {
-    Title: "Méduse",
-    Description: "Short film",
-    Year: 2022,
-    Icon: "images/icons/video.png",
-  },
-
-  {
-    Title: "Œ",
-    Description: "Short film",
-    Year: 2021,
-    Icon: "images/icons/video.png",
-  },
-];
-
-// Musique
-
-let cat5DataEN = [
-  {
-    Title: "5M ETG",
-    Description: "Music",
-    Year: 2022,
-    Icon: "images/icons/music.png",
-  },
-];
-
-let allDataEN = [
-  cat0DataEN,
-  cat1DataEN,
-  cat2DataEN,
-  cat3DataEN,
-  cat4DataEN,
-  cat5DataEN,
-  cat6Data,
-];
