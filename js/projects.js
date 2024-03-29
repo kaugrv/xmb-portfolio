@@ -12,7 +12,8 @@ let cat0Data = [
   
   { Title: "À propos", Description: "", Icon: "images/icons/profile.png" ,
 
-  contentDesc:`<img src="images/pp-xmb-portfolio.jpg" alt="" />Bonjour ! Je suis Wendy, ingénieure multimédia en France. <br> <br> Baignée dans les jeux vidéos et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
+  contentDesc:`<img class="pp-adulte" src="images/pp-xmb-portfolio.jpg" alt="" />
+  Bonjour ! Je suis Wendy, ingénieure multimédia en France. <br> <br> Baignée dans les jeux vidéos et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
   <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme cheffe de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
   Contact : kau.grv@gmail.com`,
 },
@@ -56,6 +57,11 @@ let cat1Data = [
     Description: "Jeu web",
     Year: 2024,
     Icon: "images/icons/links.png",
+
+    
+    Background: "images/backgrounds/lmd.jpg",
+
+
     contentDesc:`Jeu réalisé en 48h à l'occasion d'une GameJam. Le thème, imposé, était "Profondeurs", et la contrainte était d'inclure une forme de mise en abyme dans son jeu. <br> <br>Seule, j'ai choisi de rester très simple en réalisant un petit jeu web, le but est d'utiliser sa souris pour relier les étoiles de la page. J'ai codé le jeu principalement en Javascript en utilisant un peu les frameworks GSAP (animation) et p5 (dessin).`,
     projectLink:"https://wendywendo.itch.io/laisse-moi-dormir",
     Logiciels:["Photoshop", "HTML", "CSS", "Javascript", "GSAP", "p5"]
@@ -66,7 +72,7 @@ let cat1Data = [
     Description: "Site web",
     Year: 2023,
     Icon: "images/icons/links.png",
-    contentDesc:`<img src="images/projects/wendysmedia.jpg" alt="" />Projet transmédia
+    contentDesc:`<img src="images/backgrounds/wendysmedia.jpg" alt="" />Projet transmédia
     (photographie, design graphique et web). À l'occasion du
     "Coverartober", un défi créatif, j'ai imaginé 31 designs de pochettes
     d'albums de musique fictifs, en me basant seulement sur le titre donné
@@ -83,7 +89,7 @@ let cat1Data = [
     Description: "Jeu web",
     Year: 2023,
     Icon: "images/icons/interactive.png",
-    contentDesc:`<img src="images/projects/superseason_content.jpg" alt="" />Jeu réalisé lors d'un cours d'apprentissage des bases du Javascript. Le but était de réaliser une application interactive avec différents écrans (début, fin, game over...), un inventaire et une progression. <br> <br>J'ai donc imaginé un jeu où l'on doit ramasser des pièces avec la souris, il est aussi possible de gagner des bonus permettant de changer la couleur de son vaisseau ou la saison du jeu.`,
+    contentDesc:`<img src="images/backgrounds/superseason_content.jpg" alt="" />Jeu réalisé lors d'un cours d'apprentissage des bases du Javascript. Le but était de réaliser une application interactive avec différents écrans (début, fin, game over...), un inventaire et une progression. <br> <br>J'ai donc imaginé un jeu où l'on doit ramasser des pièces avec la souris, il est aussi possible de gagner des bonus permettant de changer la couleur de son vaisseau ou la saison du jeu.`,
     projectLink:"https://espacedev.ca/uqat/arn2304/2023/jeux/jeu/05/",
     Logiciels:["Photoshop", "HTML", "CSS", "Javascript"]
   },
@@ -93,7 +99,7 @@ let cat1Data = [
     Description: "Jeu vidéo",
     Year: 2023,
     Icon: "images/icons/mcb.png",
-    Background: "images/projects/mcb.jpg",
+    Background: "images/backgrounds/mcb.jpg",
 
     contentDesc: `Jeu réalisé en 48h à l'occasion d'une GameJam. Le thème, imposé, était "Pause", et la contrainte était de ne pas faire apparaître d'humain dans le jeu. Nous étions une petite équipe et avons imaginé et codé Maxi Casse Briques, une version un peu particulière du célèbre mini-jeu car en plus de devoir casser les briques avec une balle en utilisant les flèches du clavier, le joueur sera constamment dérangé par des fenêtres apparaissant aléatoirement et qu'il devra fermer en utilisant sa souris. <br> <br>Nous étions deux du côté développement sur Unity, j'ai implementé les fenêtres du jeu et codé le gameplay en C#.`,
 
@@ -107,7 +113,6 @@ let cat1Data = [
     Description: "Jeu vidéo",
     Year: 2023,
     Icon: "images/icons/lw.jpg",
-    Background: "images/projects/lw.jpg",
 
     projectLink:"https://wendywendo.itch.io/luck-white",
 
@@ -136,6 +141,9 @@ let cat1Data = [
     Description: "Jeu vidéo",
     Year: 2022,
     Icon: "images/icons/interactive.png",
+
+    
+    Background: "images/backgrounds/numero10.jpg",
 
     projectLink:"https://rom1-le-pain.itch.io/numero-10",
 
@@ -166,7 +174,7 @@ let cat2Data = [
     Description: "Bande dessinée",
     Year: 2022,
     Icon: "images/icons/2d.png",
-    Background: "images/projects/azurites.jpg",
+    Background: "images/backgrounds/azurites.jpg",
 
     contentDesc: `BD réalisée dans le cadre des 23h de la Bande Dessinée 2022. Un thème ("Mythes Anachroniques") et une contrainte (Présence d'un élément bleu au long du récit) étaient imposés ainsi que le nombre de pages, 24. <br><br> Nous avons, en duo, dessiné et écrit sous la forme d'alexandrins, Azurites, le conte plein d'espoir de deux monolithes âmes soeurs. Nous nous sommes inspirés de récits shakespeariens, bibliques mais aussi de bandes dessinées, notamment des Yeux du Chat de Moebius et Jodorowsky. `,
 
@@ -181,7 +189,7 @@ let cat2Data = [
     Description: "Dessin",
     Year: 2022,
     Icon: "images/icons/2d.png",
-    Background: "images/projects/integrale.jpg",
+    Background: "images/backgrounds/integrale.jpg",
 
     contentDesc: `Affiche A0 (84,1 x 118,9 cm) réalisée aux feutres noirs.  `,
     
@@ -193,6 +201,9 @@ let cat2Data = [
     Description: "Design",
     Year: 2021,
     Icon: "images/icons/2d.png",
+
+    
+    Background: "images/backgrounds/iss.jpg",
 
     contentDesc: `Exercice de design pour s'approprier la suite Adobe et les principes d'arts appliqués : réaliser et appliquer une charte graphique, des pictogrammes, une mise en page... <br><br> Nous avons "re-brandé" et cartographié la Station Spatiale Internationale en adoptant un style moderne rappelant la technologie et l'espace. `,
     
@@ -208,7 +219,7 @@ let cat2Data = [
     
     contentDesc: `Quelques dessins aux feutres noirs réalisés lors du défi "InkTober" de 2021, consistant à réaliser un dessin par jour pendant tout le mois d'octobre. `,
 
-    Background: "images/projects/ink.jpg",
+    Background: "images/backgrounds/ink.jpg",
   },
 ];
 
@@ -236,7 +247,7 @@ let cat3Data = [
     Description: "Motion Capture et animation 3D",
     Year: 2023,
     Icon: "images/icons/3d.png",
-    Background: "images/projects/racer.jpg",
+    Background: "images/backgrounds/racer.jpg",
 
     contentDesc: `Vidéo réalisée entièrement en utilisant la technique de Motion Capture (capture de mouvement). <br><br>
     Après avoir choisi un rig sur le site Mixamo.com, écrit un scénario et capté les mouvements d'un acteur dans la peau d'un personnage en 3D, nous avons nettoyé les animations puis intégré celles-ci dans une scène avec des objets, des personnages, des caméras et des lumières en utilisant le moteur Unreal 5 (partie sur laquelle j'ai le plus participé, me permettant d'apprendre à utiliser ce moteur de jeu). `,
@@ -252,7 +263,7 @@ let cat3Data = [
     Description: "Compositing 3D",
     Year: 2023,
     Icon: "images/icons/3d.png",
-    Background: "images/projects/metropolis.jpg",
+    Background: "images/backgrounds/metropolis.jpg",
 
     contentDesc: `Image réalisée avec le moteur de rendu Arnold sur 3ds Max. Le but n'était pas de modéliser des objets mais de rendre une image avec une belle composition, éclairage et effets. Nous nous sommes inspirés de plans du film Metropolis, mais aussi du Néo-Tokyo d'Akira ou encore de la BD "Les Cités obscures". `,
     
@@ -265,7 +276,7 @@ let cat3Data = [
     Description: "Modélisation 3D",
     Year: 2023,
     Icon: "images/icons/3d.png",
-    Background: "images/projects/lucario.jpg",
+    Background: "images/backgrounds/lucario.jpg",
 
     contentDesc: `Scène modélisée sur le logiciel 3ds Max. Nous avons modélisé des Pokémon et un micro-environnement dans lequel les placer, à la manière d'un petit diorama. `,
 
@@ -278,7 +289,7 @@ let cat3Data = [
     Description: "Modélisation 3D",
     Year: 2023,
     Icon: "images/icons/3d.png",
-    Background: "images/projects/postapo.jpg",
+    Background: "images/backgrounds/postapo.jpg",
     projectLink:"https://skfb.ly/oR6tH",
     contentDesc: `Scène architecturale et objets modélisés sur le logiciel 3ds Max. `,
 
@@ -291,7 +302,7 @@ let cat3Data = [
     Description: "Modélisation et animation 3D",
     Year: 2022,
     Icon: "images/icons/3d.png",
-    Background: "images/projects/infinitimac.gif",
+    Background: "images/backgrounds/infinitimac.jpg",
 
     projectLink:"https://www.youtube.com/watch?v=tNsp-72OZuw",
     
@@ -311,7 +322,7 @@ let cat4Data = [
     Year: 2023,
     Icon: "images/icons/video.png",
 
-    Background: "images/projects/migratory.jpg",
+    Background: "images/backgrounds/migratory.jpg",
 
     contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/iD8X52fKtsQ?si=GcRI5lqPdG_mL-cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Générique d'un film fictif (2min09). <br><br>Nous devions inventer le logo d'un studio et d'une boîte de production, ainsi que le synopsis d'un long-métrage, les noms des acteurs et équipe technique, et en réaliser le générique (ou "Title Sequence"). Nous avons donc écrit Migratory Birds (And Why They Don't Fly Alone), un road-movie des années 70, racontant l'histoire d'une américaine en cavale et d'un jeune britannique en quête d'aventures, sillonnant les routes des États-Unis. <br><br> Si nous avons imaginé et storyboardé le générique ensemble, mon binôme a modélisé et animé les plans sur Blender et j'ai fait tout le montage, l'editing et le sound design, sur After Effects. `,
 
@@ -325,7 +336,7 @@ let cat4Data = [
     Year: 2022,
     Icon: "images/icons/video.png",
 
-    Background: "images/projects/meduse.jpg",
+    Background: "images/backgrounds/meduse.jpg",
 
     contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/_5DUpCFF6bg?si=Pb-4LdhLeXTKjpnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> "Ça fait quoi, d'aller plus vite que tout le monde ?"<br><br> Court-métrage de science-fiction (13min55) réalisé par Axel Dona. <br><br>J'ai principalement participé à l'écriture, au cadrage et au montage. J'apparais aussi en tant que figurante et comme doublure de Morgane, le personnage principal, une jeune femme qui semble (sur)vivre dans un monde où le temps s'est arrêté. Nous avons ainsi pu nous amuser à la réalisation et aux effets spéciaux pour simuler cette pause du cours du temps et en exploiter les rouages.`,
 
@@ -338,6 +349,9 @@ let cat4Data = [
     Description: "Court-métrage",
     Year: 2021,
     Icon: "images/icons/video.png",
+
+    
+    Background: "images/backgrounds/oe.jpg",
 
     contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/JlQN5H2ydi8?si=sCPlXtKL-2B8OnQN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Court-métrage (7min44) réalisé par Mattéo Leclercq et Romain Serres. <br><br> Premier court-métrage auquel j'ai participé, j'ai principalement été cadreuse. Voyage solitaire et sans dialogue sur le thème du rêve et de l'étrange, Œ était surtout l'occasion d'expérimenter avec les fondements du cinéma et les techniques qui lui sont propres, en tournant nos séquences aussi bien en intérieur qu'en extérieur dans plusieurs endroits de la région parisienne.  `,
 
