@@ -429,6 +429,27 @@ let cat6Data = [
     Link: "https://www.instagram.com/sarahkg_photographie/",
     Icon: "images/icons/2d.png",
   },
+
+  {
+    Title: "Maëlle Fleitz",
+    Description: "",
+    Link: "https://matraellix.artstation.com/",
+    Icon: "images/icons/3d.png",
+  },
+
+  {
+    Title: "Benjamin Razafimanantsoa",
+    Description: "",
+    Link: "https://ben-raza.fi/",
+    Icon: "images/icons/video.png",
+  },
+
+  {
+    Title: "Loïc Quinquenel",
+    Description: "",
+    Link: "https://loicquinquenel.fr/",
+    Icon: "images/icons/links.png",
+  },
 ];
 
 let friendLinks = [];
