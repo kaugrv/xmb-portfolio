@@ -1,5 +1,5 @@
-let nbCat = 7; // Bombre de catégories (Interactivité, 3D...)
-let nbProj = [0, 0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
+let nbCat = 6; // Bombre de catégories (Interactivité, 3D...)
+let nbProj = [0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
 
 // Wendy Gervais
 let cat0Data = [
@@ -40,17 +40,6 @@ for (let i in cat0Data) {
 
 // Interactivité
 let cat1Data = [
-  {
-    Title: "HORNE",
-    Description: "Design de menu",
-    Year: 2024,
-    Icon: "images/icons/interactive.png",
-    contentDesc:`Design et implémentation d'un menu de jeu 3D fictif, fait sur Unity.<br> <br>
-
-    Le but était d'inventer un jeu, un univers, d'en designer et coder le menu d'accueil (boutons, menu options...) en utilisant les outils de terrain, de GUI et le scripting C#. HORNE serait un jeu d'aventure-horreur inspiré de l'histoire de la ville de Rouyn-Noranda et sa fonderie.`,
-    projectLink:"https://wendywendo.itch.io/horne",
-    Logiciels:["Unity", "Photoshop"]
-  },
 
   {
     Title: "Laisse-moi dormir",
@@ -344,6 +333,20 @@ let cat4Data = [
     Equipe:["Benjamin Amrani", "Axel Dona", "Aurélien Droissart", "Tristan Debeaune"]
   },
 
+    {
+    Title: "5M ETG",
+    Description: "Musique",
+    Year: 2022,
+    Icon: "images/icons/music.png",
+
+    
+
+    Logiciels:["ProTools"],
+    Equipe:["Tristan Debeaune"],
+
+    contentDesc:`<iframe width="315" height="315" src="https://www.youtube.com/embed/fSZmFKYWb-E?si=MgMCKMAm3PtviCfV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Composition (1min59). <br><br> Très inspirés par la musique concrète de Pierre Schaeffer, nous avons composé et mixé 5M ETG en enregistrant divers sons dans un appartement et dans l'immeuble : clés, porte qui grince, tapotements des doigts, horloge... et notamment la voix dans l'ascenseur, qui a donné son nom à cette oeuvre lorsqu'elle a scandé "cinquième étage".`
+  },
+
   {
     Title: "Œ",
     Description: "Court-métrage",
@@ -362,25 +365,25 @@ let cat4Data = [
 
 // Musique
 
-let cat5Data = [
-  {
-    Title: "5M ETG",
-    Description: "Musique",
-    Year: 2022,
-    Icon: "images/icons/music.png",
+// let cat5Data = [
+//   {
+//     Title: "5M ETG",
+//     Description: "Musique",
+//     Year: 2022,
+//     Icon: "images/icons/music.png",
 
     
 
-    Logiciels:["ProTools"],
-    Equipe:["Tristan Debeaune"],
+//     Logiciels:["ProTools"],
+//     Equipe:["Tristan Debeaune"],
 
-    contentDesc:`<iframe width="315" height="315" src="https://www.youtube.com/embed/fSZmFKYWb-E?si=MgMCKMAm3PtviCfV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Composition (1min59). <br><br> Très inspirés par la musique concrète de Pierre Schaeffer, nous avons composé et mixé 5M ETG en enregistrant divers sons dans un appartement et dans l'immeuble : clés, porte qui grince, tapotements des doigts, horloge... et notamment la voix dans l'ascenseur, qui a donné son nom à cette oeuvre lorsqu'elle a scandé "cinquième étage".`
-  },
-];
+//     contentDesc:`<iframe width="315" height="315" src="https://www.youtube.com/embed/fSZmFKYWb-E?si=MgMCKMAm3PtviCfV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Composition (1min59). <br><br> Très inspirés par la musique concrète de Pierre Schaeffer, nous avons composé et mixé 5M ETG en enregistrant divers sons dans un appartement et dans l'immeuble : clés, porte qui grince, tapotements des doigts, horloge... et notamment la voix dans l'ascenseur, qui a donné son nom à cette oeuvre lorsqu'elle a scandé "cinquième étage".`
+//   },
+// ];
 
 //Friends
 
-let cat6Data = [
+let cat5Data = [
   {
     Title: "Tristan Debeaune",
     Description: "",
@@ -453,8 +456,8 @@ let cat6Data = [
 ];
 
 let friendLinks = [];
-for (let i in cat6Data) {
-  friendLinks.push(cat6Data[i].Link);
+for (let i in cat5Data) {
+  friendLinks.push(cat5Data[i].Link);
 }
 
 let allDataFR = [
@@ -464,7 +467,6 @@ let allDataFR = [
   cat3Data,
   cat4Data,
   cat5Data,
-  cat6Data,
 ];
 
 let BackgroundImg = [];

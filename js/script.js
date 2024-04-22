@@ -134,9 +134,9 @@ function focusProj() {
   let commands = document.querySelector("#commands");
 
   if (
-    // Liens de moi et ami.es (cat 0 && possède un Link, ou cat 6)
+    // Liens de moi et ami.es (cat 0 && possède un Link, ou cat 5)
     (Links[currentProj[currentCat]] && currentCat === 0) ||
-    currentCat === 6
+    currentCat === 5
   ) {
     gsap.to(commands, {
       duration: 1,
@@ -395,11 +395,11 @@ function jumpToProj(n) {
 
     // On clique sur le projet "actuel"
     else if (currentProj[currentCat] === n) {
-      if (currentCat !== 6 && currentCat !== 0) {
-        // Entrée projet (pas cat0 et cat6)
+      if (currentCat !== 5 && currentCat !== 0) {
+        // Entrée projet (pas cat0 et cat5)
         enterProject();
-      } else if (currentCat === 6 && friendLinks[currentProj[currentCat]]) {
-        // Liens amis (cat6)
+      } else if (currentCat === 5 && friendLinks[currentProj[currentCat]]) {
+        // Liens amis (cat5)
         window.open(friendLinks[currentProj[currentCat]], "_blank");
       } else if (currentCat === 0 && Links[currentProj[currentCat]]) {
         // Lien Linktree
@@ -500,7 +500,7 @@ function openThemeChanger() {
 
 document.body.addEventListener("keydown", (e) => {
   // Liens des ami.es
-  if (e.key === "Enter" && currentCat === 6) {
+  if (e.key === "Enter" && currentCat === 5) {
     forth.play();
     if (friendLinks[currentProj[currentCat]])
       window.open(friendLinks[currentProj[currentCat]], "_blank");
@@ -690,7 +690,7 @@ function quitProject() {
 // Bouton Enter (enter project)
 document.body.addEventListener("keydown", (e) => {
   // Projets normaux
-  if (e.key === "Enter" && currentCat !== 0 && currentCat !== 6) {
+  if (e.key === "Enter" && currentCat !== 0 && currentCat !== 5) {
     if (!projectOpen) enterProject();
     else quitProject();
   }
