@@ -40,6 +40,19 @@ for (let i in cat0Data) {
 
 // Interactivité
 let cat1Data = [
+  {
+    Title: "Les tours de Kawaii",
+    Description: "Jeu vidéo",
+    Year: 2024,
+    Icon: "images/icons/les-tours-de-kawaii-logo.png",
+    Background: "images/backgrounds/les-tours-de-kawaii.png",
+
+    
+
+    contentDesc:`Mini-jeu 3D inspiré des tours de Hanoï et de l'esthétique japonaise dite "kawaii".`,
+    projectLink:" https://wendywendo.itch.io/les-tours-de-kawaii",
+    Logiciels:["Figma", "Unity"]
+  },
 
   {
     Title: "Laisse-moi dormir",
@@ -216,6 +229,22 @@ let cat2Data = [
 
 let cat3Data = [
   {
+    Title: "Egyptian Racing Game",
+    Description: "Modélisation 3D et jeu vidéo",
+    Year: 2024,
+    Icon: "images/icons/3d.png",
+    projectLink:"https://wendywendo.itch.io/egyptian-racing",
+
+    contentDesc: `Nous avons modélisé un pack d'assets en 24h sur le thème d'un jeu de course égyptien. Si j'ai modélisé quelques objets comme le vase et le sceptre, j'ai principalement texturé les objets sur Substance Painter en utilisant la technique de hand-painting et les peignant directement à la tablette graphique.<br><br>
+
+    Par la suite, j'ai utilisé nos objets dans un petit prototype de jeu Unity, où l'on contrôle l'un des chars pour ramasser des objets, l'autre char étant contrôlé par l'ordinateur.`,
+
+    Logiciels:["Substance Painter", "Maya", "Unity"],
+    
+    Equipe:["Maëlle Fleitz", "Loïc Quinquenel"]
+  },
+
+  {
     Title: "Diorama d'un.e voyant.e moderne",
     Description: "Modélisation 3D",
     Year: 2024,
@@ -230,6 +259,20 @@ let cat3Data = [
 
     Logiciels:["Maya", "Photoshop"]
   },
+  
+  {
+    Title: "Honni soit qui mal y pense",
+    Description: "Illustration 3D",
+    Year: 2024,
+    Icon: "images/icons/3d.png",
+    projectLink:"https://skfb.ly/oSrYx",
+
+    contentDesc: `<img src="images/projects/hsqmyp.png" alt="" />Œuvre numérique personnelle en volume sur le thème de ma double nationalité franco-britannique. `,
+
+    Logiciels:["Maya", "Illustrator"]
+  },
+
+
 
   {
     Title: "The Racer",
@@ -304,6 +347,22 @@ let cat3Data = [
 // Audiovisuel
 
 let cat4Data = [
+  {
+    Title: "Dōga",
+    Description: "Générique",
+    Year: 2024,
+    Icon: "images/icons/video.png",
+
+    Background: "images/backgrounds/doga.jpg",
+
+    contentDesc:`<iframe width="560" height="315" src=" https://www.youtube.com/embed/zfWhahruxG0?si=NMMtRjXuFWwHxe1V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> Générique d'une série animée fictive (1min10). <br><br>
+
+    Dans le cours "Image en mouvement" à l'université, nous devions inventer et réaliser le générique d'une série. Nous avons imaginé une série animée japonaise sur le thème du cours lui-même, où apparaissent l'université, nous-mêmes, nos camarades et notre professeur, dans un style inspiré d'openings colorés tels que JoJo'S Bizarre Adventure ou encore Cyberpunk: Edgerunners.
+     `,
+
+    Logiciels:["After Effects", "Illustrator", "Photoshop"],
+    Equipe:["Tristan Debeaune"]
+  },
 
   {
     Title: "Migratory Birds And Why They Don't Fly Alone",
