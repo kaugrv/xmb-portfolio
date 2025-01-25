@@ -312,3 +312,34 @@ li {
 
 .project-content a {
 }
+
+.alerte-mobile {
+  display: none;
+  text-align: justify;
+
+  backdrop-filter: blur(100px);
+
+  z-index: 50;
+
+  margin: 20vh 10vw;
+  padding: 50px;
+
+  overflow-y: auto;
+  max-height: 58vh;
+  width: 65vw;
+
+
+  font-size: small;
+
+  box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+  .menu, #commands {
+    display: none;
+  }
+  .alerte-mobile {
+    display: flex;
+  }
+ 
+}

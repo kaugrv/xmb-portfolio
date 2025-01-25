@@ -4,8 +4,8 @@ let nbProj = [0, 0, 0, 0, 0, 0]; // Nb projets pour chacune des catégories
 // Wendy Gervais
 let cat0Data = [
   {
-    Title: "Étudiante en école d'ingénieurs multimédia",
-    Description: "IMAC (ESIEE Paris) et UQAT. Web, jeux vidéo, design & audiovisuel. ",
+    Title: "Ingénieure multimédia",
+    Description: "Chargée de projet spécialisée en web, jeux vidéo, design & audiovisuel. ",
     Icon: "images/pp-xmb-portfolio.jpg",
   },
 
@@ -13,8 +13,8 @@ let cat0Data = [
   { Title: "À propos", Description: "", Icon: "images/icons/profile.png" ,
 
   contentDesc:`<img class="pp-adulte" src="images/pp-xmb-portfolio.jpg" alt="" />
-  Bonjour ! Je suis Wendy, ingénieure multimédia en France. <br> <br> Baignée dans les jeux vidéos et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
-  <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme cheffe de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
+  Bonjour ! Je suis Wendy, ingénieure multimédia en France. Diplômée de l'ESIEE Paris, je suis avant tout une grande passionnée d'art numérique. <br> <br> Baignée dans les jeux vidéo et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
+  <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme chargée de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
   Contact : kau.grv@gmail.com`,
 },
 
@@ -257,17 +257,6 @@ let cat3Data = [
     Logiciels:["Maya", "Photoshop"]
   },
   
-  {
-    Title: "Honni soit qui mal y pense",
-    Description: "Illustration 3D",
-    Year: 2024,
-    Icon: "images/icons/3d.png",
-    projectLink:"https://skfb.ly/oSrYx",
-
-    contentDesc: `<img src="images/projects/hsqmyp.png" alt="" />Œuvre numérique personnelle en volume sur le thème de ma double nationalité franco-britannique. `,
-
-    Logiciels:["Maya", "Illustrator"]
-  },
 
 
 
@@ -331,6 +320,19 @@ let cat3Data = [
 // Audiovisuel
 
 let cat4Data = [
+  {
+    Title: "Souvenirs d'amour et de féerie",
+    Description: "Court-métrage",
+    Year: 2025,
+    Icon: "images/icons/video.png",
+
+
+    contentDesc:`<iframe width="560" height="315" src="https://www.youtube.com/embed/QlmejISli_g?si=3ceQFb2AVoPX2ryL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <br> <br> Court-métrage (3min10) réalisé en 48 heures. <br><br> Nous avons écrit, filmé et réalisé ce court-métrage cotemplatif et expéimental en nous basant sur le poème de Théophile Gautier, "Moyen-âge", le thème éponyme imposé de l'événement durant lequel nous avons créé ce film.`,
+
+    Logiciels:["Premiere Pro"],
+    Equipe:["Marion Barthe", "Quentin Huet", "Ulysse Roussel", "Emily-Rose Strich"]
+  },
+
   {
     Title: "Ça ne s'invente pas ! ",
     Description: "Publicité",
@@ -464,6 +466,27 @@ let cat5Data = [
   },
 
   {
+    Title: "girlfriendcore",
+    Description: "",
+    Link: "https://soundcloud.com/girlfriendcore",
+    Icon: "images/icons/music.png",
+  },
+
+  {
+    Title: "Miamo Alex",
+    Description: "",
+    Link: "https://miamoalex.net/",
+    Icon: "images/icons/links.png",
+  },
+
+  {
+    Title: "Sarah KG Photographie",
+    Description: "",
+    Link: "https://www.instagram.com/sarahkg_photographie/",
+    Icon: "images/icons/2d.png",
+  },
+
+  {
     Title: "Mattéo Leclercq",
     Description: "",
     Link: "https://matteo-leclercq.fr/",
@@ -475,20 +498,6 @@ let cat5Data = [
     Description: "",
     Link: "https://www.axeldona.com/",
     Icon: "images/icons/video.png",
-  },
-
-  {
-    Title: "girlfriendcore",
-    Description: "",
-    Link: "https://soundcloud.com/girlfriendcore",
-    Icon: "images/icons/music.png",
-  },
-
-  {
-    Title: "Sarah KG Photographie",
-    Description: "",
-    Link: "https://www.instagram.com/sarahkg_photographie/",
-    Icon: "images/icons/2d.png",
   },
 
   {
