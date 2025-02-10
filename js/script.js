@@ -115,7 +115,7 @@ function focusProj() {
       background:
         "url(" +
         BackgroundImg[currentCat][currentProj[currentCat]] +
-        ") no-repeat center center fixed",
+        ")",
       delay: 0.5,
     });
   }

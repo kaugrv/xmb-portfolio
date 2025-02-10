@@ -5,6 +5,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
+html {
+  background-size: cover;
+  background-position: center;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+
+}
+
 .voile {
   background-color: black;
   width: 200vw;

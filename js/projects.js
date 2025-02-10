@@ -241,23 +241,6 @@ let cat3Data = [
     Equipe:["Maëlle Fleitz", "Loïc Quinquenel"]
   },
 
-  {
-    Title: "Diorama d'un.e voyant.e moderne",
-    Description: "Modélisation 3D",
-    Year: 2024,
-    Icon: "images/icons/3d.png",
-    projectLink:"https://skfb.ly/oQXZn",
-
-    contentDesc: `<img src="images/projects/diorama.jpg" alt="" /> Scène et objets entièrement modélisés sur le logiciel Maya. Le but était de réaliser un "diorama", petite scène fixe, consistant en une pièce remplie d'au moins 20 objets. <br><br>
-
-    J'ai choisi de créer le repaire d'un ou une voyante, l'Oracle, un genre de médium doté de pouvoirs de divination évoluant dans un jeu moderne ou futur proche (d'où la présence d'ordinateur et téléphone). J'ai donc choisi un style coloré, rappelant aussi, par les couleurs, le mystère et l'ésotérisme.<br><br>
-    
-    Le texturing devait être fait sur Photoshop en utilisant la technique de gradient texturing (avec des dégradés de couleur), j'ai aussi dessiné quelques textures supplémentaires pour les objets plans (sur le mur extérieur, par exemple !) mais aussi pour les raies de lumière inondant la pièce. J'ai également utilisé du cel-shading pour ajouter les contours noirs et donner un aspect plus dessin à la scène et aux objets.`,
-
-    Logiciels:["Maya", "Photoshop"]
-  },
-  
-
 
 
   {
