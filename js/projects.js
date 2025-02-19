@@ -41,6 +41,24 @@ for (let i in cat0Data) {
 // Interactivité
 let cat1Data = [
   {
+      Title: "Nintendo Detresse",
+      Description: "Jeu vidéo",
+      Year: 2025,
+      Icon: "images/icons/ndtrss.png", 
+
+      contentDesc:`<img src="images/projects/nintendodetresse.jpg" alt="" /> Jeu vidéo réalisé en 48 heures lors d'une Gamejam.<br><br>
+  Thème imposé : "No one can see you"<br>
+  Contraintes : "Trichromie", "Passages secrets"<br><br>
+
+  J'ai principalement travaillé sur la conception, la programmation et l'intégration des assets.`,
+      projectLink:"https://wendywendo.itch.io/nintendo-detresse",
+      Logiciels:["Unity", "Photoshop", "Blender"],
+      
+      Equipe:["Romain Serres", "Emily-Rose Strich", "Ulysse Roussel", "Dablue"]
+    
+
+    },
+  {
     Title: "Bring Me Red",
     Description: "Jeu vidéo",
     Year: 2024,
@@ -86,7 +104,7 @@ let cat1Data = [
     Title: "Wendys Media Covers",
     Description: "Site web",
     Year: 2023,
-    Icon: "images/icons/links.png",
+    Icon: "images/icons/music.png",
     contentDesc:`<img src="images/projects/wendysmedia.jpg" alt="" />Projet transmédia
     (photographie, design graphique et web). À l'occasion du
     "Coverartober", un défi créatif, j'ai imaginé 31 designs de pochettes
@@ -349,6 +367,21 @@ let cat4Data = [
   },
 
   {
+    Title: "Positive Wave",
+    Description: "Clip",
+    Year: 2024,
+    Icon: "images/icons/video.png",
+
+    
+
+    contentDesc:`<iframe width="560" height="315" src=" https://www.youtube.com/embed/IVoKRsLD75M?si=agyot1vyTzQZ3IrB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <br> <br> Mini-clip animé (1min07) de la musique "Positive Wave" de Radio Byzance. Réalisé dans le cadre d'un cours d'animation à l'université.
+     `,
+
+    Logiciels:["After Effects", "Illustrator"],
+    Equipe:["Maëlle Fleitz"]
+  },
+
+  {
     Title: "Migratory Birds And Why They Don't Fly Alone",
     Description: "Générique",
     Year: 2023,
@@ -444,31 +477,11 @@ let cat5Data = [
   {
     Title: "Romain Serres",
     Description: "",
-    Link: "https://bouillon2poulet.artstation.com/",
+    Link: "https://rom1.miamo.fr/",
     Icon: "images/icons/3d.png",
   },
 
-  {
-    Title: "girlfriendcore",
-    Description: "",
-    Link: "https://soundcloud.com/girlfriendcore",
-    Icon: "images/icons/music.png",
-  },
-
-  {
-    Title: "Miamo Alex",
-    Description: "",
-    Link: "https://miamoalex.net/",
-    Icon: "images/icons/links.png",
-  },
-
-  {
-    Title: "Sarah KG Photographie",
-    Description: "",
-    Link: "https://www.instagram.com/sarahkg_photographie/",
-    Icon: "images/icons/2d.png",
-  },
-
+  
   {
     Title: "Mattéo Leclercq",
     Description: "",
@@ -481,6 +494,44 @@ let cat5Data = [
     Description: "",
     Link: "https://www.axeldona.com/",
     Icon: "images/icons/video.png",
+  },
+
+
+  {
+    Title: "Miamo Alex",
+    Description: "",
+    Link: "https://miamoalex.net/",
+    Icon: "images/icons/links.png",
+  },
+
+  {
+    Title: "girlfriendcore",
+    Description: "",
+    Link: "https://soundcloud.com/girlfriendcore",
+    Icon: "images/icons/music.png",
+  },
+
+  {
+    Title: "Irrational",
+    Description: "",
+    Link: "https://soundcloud.com/irrationalm",
+    Icon: "images/icons/music.png",
+  },
+
+
+  {
+    Title: "NNAY",
+    Description: "",
+    Link: "https://soundcloud.com/florian-debarnot",
+    Icon: "images/icons/music.png",
+  },
+
+
+  {
+    Title: "Sarah KG Photographie",
+    Description: "",
+    Link: "https://www.instagram.com/sarahkg_photographie/",
+    Icon: "images/icons/2d.png",
   },
 
   {
