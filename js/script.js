@@ -476,7 +476,7 @@ function openThemeChanger() {
       duration: 1,
       ease: "power3.out",
       innerHTML:
-        "⇅ ⇄ Utilisez les flèches pour sélectionner un thème. <br>↵ Entrée pour quitter.",
+        "⇅ ⇄ Utilisez les flèches pour sélectionner un thème. <br>Echap pour quitter.",
 
       opacity: 1,
     });
@@ -515,7 +515,7 @@ document.body.addEventListener("keydown", (e) => {
   }
 
   // Panneau choix du thème / couleur (cat0 proj3)
-  if (e.key === "Enter" && currentCat === 0 && currentProj[currentCat] === 3) {
+  if ((e.key === "Enter" || e.key === "Escape") && currentCat === 0 && currentProj[currentCat] === 3) {
     openThemeChanger();
   }
 });
@@ -641,7 +641,7 @@ function enterProject() {
   gsap.to(commands, {
     duration: 1,
     ease: "power3.out",
-    innerHTML: "↵ Entrée pour quitter.",
+    innerHTML: "Echap pour quitter.",
     opacity: 1,
   });
 }
@@ -690,13 +690,13 @@ function quitProject() {
 // Bouton Enter (enter project)
 document.body.addEventListener("keydown", (e) => {
   // Projets normaux
-  if (e.key === "Enter" && currentCat !== 0 && currentCat !== 5) {
+  if ((e.key === "Enter" || e.key === "Escape") && currentCat !== 0 && currentCat !== 5) {
     if (!projectOpen) enterProject();
     else quitProject();
   }
 
   // A propos
-  if (e.key === "Enter" && currentCat === 0 && currentProj[currentCat] === 1) {
+  if ((e.key === "Enter" || e.key === "Escape") && currentCat === 0 && currentProj[currentCat] === 1) {
     if (!projectOpen) enterProject();
     else quitProject();
   }

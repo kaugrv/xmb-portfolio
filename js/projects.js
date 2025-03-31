@@ -16,7 +16,10 @@ let cat0Data = [
   Bonjour ! Je suis Wendy, ingénieure multimédia en France. Diplômée de l'ESIEE Paris, je suis avant tout une grande passionnée d'art numérique. <br> <br> Baignée dans les jeux vidéo et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
   <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme chargée de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
   Contact : kau.grv@gmail.com`,
+
+  Logiciels:[]
 },
+
 
   {
     Title: "Linktree",
@@ -41,7 +44,7 @@ for (let i in cat0Data) {
 // Interactivité
 let cat1Data = [
   {
-      Title: "Nintendo Detresse",
+      Title: "Nintendo detresse",
       Description: "Jeu vidéo",
       Year: 2025,
       Icon: "images/icons/ndtrss.png", 
@@ -54,7 +57,7 @@ let cat1Data = [
       projectLink:"https://wendywendo.itch.io/nintendo-detresse",
       Logiciels:["Unity", "Photoshop", "Blender"],
       
-      Equipe:["Romain Serres", "Emily-Rose Strich", "Ulysse Roussel", "Dablue"]
+      Equipe:["Romain Serres", "Emily-Rose Strich", "Ulysse Roussel", "Gabriel Bénard"]
     
 
     },
@@ -175,6 +178,20 @@ let cat1Data = [
 // 2D
 
 let cat2Data = [
+  {
+    Title: "De Sel et de Sueur",
+    Description: "Bande dessinée",
+    Year: 2025,
+    Icon: "images/icons/2d.png",
+    Background: "images/backgrounds/dseds.jpg",
+
+    contentDesc: `<img src="images/projects/dseds.jpg" alt="" /> BD réalisée dans le cadre des 23h de la Bande Dessinée 2025, dont le but était de réaliser une BD de 24 planches en 23h (lors du passage à l'heure d'été), sur le thème "Océan". <br><br> Nous avons écrit, storyboardé, dessiné et réalisé la mise en page de cette histoire traitant d'aliénation au travail et de conformisme. Nous nous sommes inspirés notamment de la série Severance, de Rhinocéros et du manga Bonne Nuit Punpun. `,
+
+    projectLink:"https://23hbd.com/participants/2025/commandant-grant",
+    Logiciels:["Photoshop", "Figma"],
+    Equipe:["Tristan Debeaune", "Emily-Rose Strich", "Quentin Huet"]
+
+  },
   {
     Title: "Montréal Tattoo Festival",
     Description: "Design d'affiche",
@@ -617,13 +634,41 @@ function convertDataToHTML(catData, i) {
   return ch;
 }
 
+function sortedUniq(items) {
+  const result = []
+  let lastSeen
+  let first = true
+  for (const item of items) {
+    if (first || lastSeen !== item) {
+      result.push(item)
+      first = false
+      lastSeen = item
+    }
+  }
+  return result
+}
+
 function initProjects(allData) {
   nbProj = [0, 0, 0, 0, 0, 0, 0];
+  let allLogiciels =[];
 
   for (let catData in allData) {
     let cat = document.querySelector(".cat" + catData + " .projects");
     cat.innerHTML = convertDataToHTML(allData[catData], catData);
-  }
+    
+    if (catData != 0 && catData != nbCat) {
+      for (let i=0; i<nbProj[catData]-1 ; i++) {
+        for (let x in(allData[catData][i].Logiciels)) allLogiciels.push(allData[catData][i].Logiciels[x]);
+      }
+    }
+
+  }    
+  const uniqueOutils = [...new Set(allLogiciels)];
+  console.log((uniqueOutils.sort()));
+
+  cat0Data[1].Logiciels = (uniqueOutils.sort())
+  
+
 }
 
 
