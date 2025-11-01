@@ -7,7 +7,7 @@ let cat0Data = [
     Title: "Ingénieure multimédia",
     Description:
       "Cheffe de projet spécialisée en web, jeux vidéo, design & audiovisuel. ",
-    Icon: "images/pp-xmb-portfolio.jpg",
+    Icon: "images/pp-xmb-portfolio.png",
   },
 
   {
@@ -15,7 +15,7 @@ let cat0Data = [
     Description: "",
     Icon: "images/icons/profile.png",
 
-    contentDesc: `<img class="pp-adulte" src="images/pp-xmb-portfolio.jpg" alt="" />
+    contentDesc: `<img class="pp-adulte" src="images/pp-xmb-portfolio.png" alt="" />
   Bonjour ! Je suis Wendy, ingénieure multimédia en France. Diplômée de l'ESIEE Paris, je suis avant tout une grande passionnée d'art numérique. <br> <br> Baignée dans les jeux vidéo et le web depuis de nombreuses années, j'ai créé ce portfolio fin 2023 en m'inspirant de l'interface de la PS3™ - <a href="https://manuals.playstation.net/document/fr/ps3/current/basicoperations/xmb.html" target="_blank">XMB, Tous droits réservés à Sony et Playstation</a>. 
   <br> <br> Vous pourrez retrouver ici mes projets scolaires et personnels, classés par catégories qui représentent les nombreux domaines qui m'intéressent. Forte de cette pluridisciplinarité, je peux évoluer comme chargée de projet, consultante ou encore designer ou développeuse dans des champs artistiques et numériques très variés. <br> <br> 
   Contact : kau.grv@gmail.com`,
@@ -25,7 +25,7 @@ let cat0Data = [
 
   {
     Title: "Linktree",
-    Description: "Découvrez mon CV, mon LinkedIn et mes autres liens.",
+    Description: "Découvrez mon CV et mes autres liens.",
     Link: "https://linktr.ee/commandant.grant",
     Icon: "images/icons/links.png",
   },
@@ -44,6 +44,20 @@ for (let i in cat0Data) {
 
 // Interactivité
 let cat1Data = [
+  {
+    Title: "cdgrnt's cvrrtbr",
+    Description: "Site web",
+    Year: 2025,
+    Icon: "images/icons/music.png",
+    contentDesc: `<img src="images/projects/cvrrtbr25.jpg" alt="" />Projet transmédia (dessin, design graphique et web). Deuxième participation au défi créatif "Coverartober" dont le but est de créer un design de pochette d'album de musique (cover) chaque jour. Comme en 2023, j'ai aussi décidé de créer un site internet pour y uploader mes créations jour après jour.<br><br>
+
+Travail quotidien pendant tout le mois d'octobre 2025, c'est à nouveau un projet à la fois assez expérimental et personnel. J'ai poussé un peu plus loin la contrainte que la fois précédente en m'imposant non seulement un style cohérent (duotone noir et blanc, trames, aplats, déformations) mais surtout une connexion géométrique d'une pochette à l'autre, qui, si elles fonctionnent individuellement, forment aussi à la fin du mois une image globale.<br><br>
+
+Du côté du site, je me suis aussi amusée à développer des fonctionnalités plus poussées, notamment sur mobile, avec un lecteur intégré pour écouter les musiques accompagnant chaque cover.`,
+    projectLink: "https://kaugrv.github.io/coverartober2025/",
+    Logiciels: ["Photoshop", "HTML", "CSS", "Javascript"],
+  },
+
   {
     Title: "Nintendo detresse",
     Description: "Jeu vidéo",
